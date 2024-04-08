@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import Text from './text';
 
 // Styles
-import { Colors, Typography } from 'styles';
+import {Colors, Typography} from 'styles';
+import {ActivityIndicator} from 'react-native';
 
 interface IButtonProps {
   style?: Object;
@@ -30,11 +31,15 @@ const ButtonText = styled(Text)`
 
 const Button = (props: IButtonProps) => {
   // Props
-  const { style, title = '' } = props;
+  const {style, title = '', loading = false} = props;
 
   return (
     <ButtonContainer style={style} {...props}>
-      <ButtonText>{title}</ButtonText>
+      {loading ? (
+        <ActivityIndicator size="large" color={Colors.WHITE} />
+      ) : (
+        <ButtonText>{title}</ButtonText>
+      )}
     </ButtonContainer>
   );
 };

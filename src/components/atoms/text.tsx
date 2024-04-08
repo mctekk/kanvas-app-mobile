@@ -19,8 +19,8 @@ export interface ITextProps extends TextProps {
 }
 
 const CustomText = styled.Text`
-  font-size: ${(props: ITextProps) => props.size || '14px'};
-  line-height: ${(props: ITextProps) => (props.lineHeight || props.size + 2.5 || 15)};
+  font-size: ${(props: ITextProps) => props.size || '14'}px;
+  line-height: ${(props: ITextProps) => (props.lineHeight || props.size + 2.5 || 15)}px;
   color: ${(props: ITextProps) => props.color || Colors.BLACK};
   text-align: ${(props: ITextProps) => props.align || 'auto'};
   font-weight: ${(props: ITextProps) => props.weight || 'normal'};

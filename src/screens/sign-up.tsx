@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 // Modules
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -14,6 +15,9 @@ import {Colors} from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
+import {client} from 'services/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
 
 // Interfaces
 interface ISignUpProps {
@@ -70,9 +74,36 @@ const validationSchema = yup.object().shape({
 });
 
 export const SignUp = (props: ISignUpProps) => {
-  const handleRegistration = (values: any, actions: any) => {
+
+  // States
+  const [isLoading, setIsLoading] = useState(false);
+
+  const getUserData = async () => {
+    try {
+      const response = await client.users.getUserData();
+      console.log('getUserData', response);
+      AsyncStorage.setItem(USER_DATA, JSON.stringify(response));
+      setIsLoading(false);
+    } catch (error) {
+      console.log('getUserData Error:', error);
+    }
+  };
+
+  const handleRegistration = async (values: any, actions: any) => {
     console.log('values', values);
     console.log('actions', actions);
+    setIsLoading(true);
+    try {
+      const response = await client.users.register(values);
+      console.log('Register response', response);
+      const {token, user} = response?.register;
+
+      AsyncStorage.setItem(AUTH_TOKEN, token?.token);
+      AsyncStorage.setItem(REFRESH_TOKEN, token?.refresh_token);
+      getUserData();
+    } catch (error) {
+      console.log('Register Error:', error);
+    }
   };
 
   return (
@@ -84,59 +115,85 @@ export const SignUp = (props: ISignUpProps) => {
         validationSchema={validationSchema}
         onSubmit={(values, actions) => handleRegistration(values, actions)}>
         {props => (
-          <KeyboardAwareScrollView>
+          <KeyboardAwareScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{paddingBottom: 50}}>
             <Content>
               <Input
                 labelText="Email"
                 placeholderText="Enter your email"
                 onChangeText={props.handleChange('email')}
-                value={props.values.email}
                 error={props.errors.email}
+                inputProps={{
+                  keyboardType: 'email-address',
+                  autoCapitalize: 'none',
+                  value: props.values.email,
+                }}
               />
 
               <Input
                 labelText="Firstname"
                 placeholderText="Enter your firstname"
                 onChangeText={props.handleChange('firstname')}
-                value={props.values.firstname}
                 error={props.errors.firstname}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.firstname,
+                }}
               />
 
               <Input
                 labelText="Lastname"
                 placeholderText="Enter your lastname"
                 onChangeText={props.handleChange('lastname')}
-                value={props.values.lastname}
                 error={props.errors.lastname}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.lastname,
+                }}
               />
 
               <Input
                 labelText="Displayname"
                 placeholderText="Enter your displayname"
                 onChangeText={props.handleChange('displayname')}
-                value={props.values.displayname}
                 error={props.errors.displayname}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.displayname,
+                }}
               />
 
               <Input
                 labelText="Password"
                 placeholderText="Enter your password"
                 onChangeText={props.handleChange('password')}
-                value={props.values.password}
                 error={props.errors.password}
                 secureTextEntry={true}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.password,
+                }}
               />
 
               <Input
                 labelText="Confirm Password"
                 placeholderText="Confirm your password"
                 onChangeText={props.handleChange('password_confirmation')}
-                value={props.values.password_confirmation}
                 error={props.errors.password_confirmation}
                 secureTextEntry={true}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.password_confirmation,
+                }}
               />
 
-              <Button title="Sign Up" onPress={props.handleSubmit} />
+              <Button
+                title="Sign Up"
+                onPress={props.handleSubmit}
+                loading={isLoading}
+                disabled={isLoading}
+              />
             </Content>
           </KeyboardAwareScrollView>
         )}

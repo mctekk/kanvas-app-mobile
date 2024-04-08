@@ -8,3 +8,7 @@ export const TOUCHABLE_AREA = {
   left: TOUCH_PADDING,
   right: TOUCH_PADDING,
 };
+
+export const AUTH_TOKEN = 'AUTH_TOKEN';
+export const REFRESH_TOKEN = 'REFRESH_TOKEN';
+export const USER_DATA = 'USER_DATA';

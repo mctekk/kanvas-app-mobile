@@ -33,6 +33,7 @@ interface IProps {
   onFocus?: () => void;
   onBlur?: () => void;
   secureTextEntry?: boolean;
+  error?: boolean | string;
 }
 
 const Container = styled.View`
@@ -45,6 +46,13 @@ const Title = styled(Text)`
   font-size: ${(props: IProps) =>
     props.labelFontSize ? props.labelFontSize : Typography.FONT_SIZE_16}px;
   margin-bottom: 10px;
+`;
+const ErrorText = styled(Text)`
+  color: ${Colors.ERROR_RED};
+  font-size: ${Typography.FONT_SIZE_12}px;
+  line-height: ${Typography.FONT_SIZE_16}px;
+  padding-top: 5px;
+  margin-left: 8px;
 `;
 
 const TextInput = (props: IProps) => {
@@ -71,6 +79,7 @@ const TextInput = (props: IProps) => {
     onBlur,
     editable = true,
     secureTextEntry = false,
+    error = false | '',
   } = props;
 
   return (
@@ -101,6 +110,8 @@ const TextInput = (props: IProps) => {
         secureTextEntry={secureTextEntry}
         {...inputProps}
       />
+
+      {error ? <ErrorText>{error}</ErrorText> : <></>}
     </Container>
   );
 };

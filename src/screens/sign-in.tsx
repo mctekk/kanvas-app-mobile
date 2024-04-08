@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 // Modules
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {Formik} from 'formik';
+import * as yup from 'yup';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Molcules
 import TextInput from 'components/molecules/text-input';
@@ -11,16 +15,25 @@ import CustomButton from 'components/atoms/button';
 import Text from 'components/atoms/text';
 
 // Organisms
-import { AuthContainer } from 'components/organisms/auth-container';
-import { Colors, Typography } from 'styles';
+import {AuthContainer} from 'components/organisms/auth-container';
 
-const Container = styled.SafeAreaView`
-  flex: 1;
-  background-color: #fff;
-`;
+// Styles
+import {Colors, Typography} from 'styles';
+
+// Services
+import {client} from 'services/api';
+
+// Constants
+import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+
+// Interfaces
+interface ISignInProps {
+  navigation: any;
+}
 
 const Title = styled(Text)`
-  font-size: 24px;
+  font-size: ${Typography.FONT_SIZE_24}px;
+  line-height: ${Typography.FONT_SIZE_32}px;
   font-weight: bold;
   color: #333;
 `;
@@ -53,58 +66,96 @@ const SignUpText = styled(Text)`
   color: ${Colors.SOFT_BLACK};
 `;
 
-// Interfaces
-interface ISignInProps {
-  navigation: any;
-}
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+const validationSchema = yup.object().shape({
+  email: yup.string().required('This field is requiered'),
+  password: yup.string().required('This field is requiered'),
+});
 
 export const SignIn = (props: ISignInProps) => {
-  const { navigation } = props;
+  // Props
+  const {navigation} = props;
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // States
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSignIn = () => {
-    navigation.navigate('HomeStack');
+  const getUserData = async () => {
+    try {
+      const response = await client.users.getUserData();
+      console.log('Get User Data Response:', response);
+      AsyncStorage.setItem(USER_DATA, JSON.stringify(response));
+      setIsLoading(false);
+      navigation.navigate('HomeStack');
+    } catch (error) {
+      console.log('Get User Data Error:', error);
+    }
+  };
+
+  const handleSignIn = async (values: any) => {
+    setIsLoading(true);
+    try {
+      const response = await client.auth.login(values.email, values.password);
+      console.log('Login Response:', response);
+      const {token, refresh_token} = response;
+      AsyncStorage.setItem(AUTH_TOKEN, token);
+      AsyncStorage.setItem(REFRESH_TOKEN, refresh_token);
+      getUserData();
+    } catch (error) {
+      console.log('Login Error:', error);
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
-      <AuthContainer>
-        <Title>Welcome</Title>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={(values, actions) => handleSignIn(values, actions)}>
+        {props => (
+          <AuthContainer>
+            <Title>Welcome</Title>
+            <Content>
+              <TextInput
+                labelText="Email"
+                placeholderText="Enter your email"
+                onChangeText={props.handleChange('email')}
+                inputProps={{
+                  keyboardType: 'email-address',
+                  autoCapitalize: 'none',
+                  value: props.values.email,
+                }}
+              />
 
-        <Content>
-          <TextInput
-            labelText="Email"
-            placeholderText="Enter your email"
-            value={email}
-            onChangeText={(text: string) => setEmail(text)}
-          />
-
-          <TextInput
-            labelText="Password"
-            placeholderText="Enter your password"
-            secureTextEntry={true}
-            value={password}
-            onChangeText={(text: string) => setPassword(text)}
-            style={{ marginTop: 20 }}
-          />
-        </Content>
-
-        <Button
-          title="Sign In"
-          onPress={handleSignIn}
-          style={{ marginTop: 20 }}
-        />
-
-      </AuthContainer>
-
-      <SignUpButton
-        onPress={() => navigation.navigate('SignUp')}
-      >
+              <TextInput
+                labelText="Password"
+                placeholderText="Enter your password"
+                style={{marginTop: 20}}
+                onChangeText={props.handleChange('password')}
+                secureTextEntry={true}
+                inputProps={{
+                  autoCapitalize: 'none',
+                  value: props.values.password,
+                }}
+              />
+            </Content>
+            <Button
+              title="Sign In"
+              onPress={props.handleSubmit}
+              loading={isLoading}
+              disabled={isLoading}
+              style={{marginTop: 20}}
+            />
+          </AuthContainer>
+        )}
+      </Formik>
+      <SignUpButton onPress={() => navigation.navigate('SignUp')}>
         <SignUpText>Sign Up Now</SignUpText>
       </SignUpButton>
-
     </>
   );
 };

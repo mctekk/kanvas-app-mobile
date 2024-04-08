@@ -1,5 +1,6 @@
 // Modules
 import React from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components';
 
 const Container = styled.SafeAreaView`
@@ -22,9 +23,18 @@ interface IHomeProps {
 
 export const Home = (props: IHomeProps) => {
 
+  // Props
+  const { navigation } = props;
+
   return (
     <Container>
-      <Title>Home</Title>
+      <Title>Kanvas Home</Title>
+
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+      >
+        <Title>Go Back</Title>
+      </TouchableOpacity>
     </Container>
   );
 };

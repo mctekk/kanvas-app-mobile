@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-shadow */
 // Modules
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {Alert} from 'react-native';
 
 // Molecules
 import Header from 'components/molecules/header';
@@ -15,9 +17,16 @@ import {Colors} from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
+
+// Api
 import {client} from 'services/api';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Utils
 import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+
+// Context
+import {AuthContext} from 'components/context/auth-context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Interfaces
 interface ISignUpProps {
@@ -74,15 +83,17 @@ const validationSchema = yup.object().shape({
 });
 
 export const SignUp = (props: ISignUpProps) => {
-
   // States
   const [isLoading, setIsLoading] = useState(false);
 
-  const getUserData = async () => {
+  // Context
+  const {signUp} = useContext(AuthContext);
+
+  const getUserData = async (token: string, refresh_token: string) => {
     try {
       const response = await client.users.getUserData();
       console.log('getUserData', response);
-      AsyncStorage.setItem(USER_DATA, JSON.stringify(response));
+      signUp({token, refresh_token, user: response});
       setIsLoading(false);
     } catch (error) {
       console.log('getUserData Error:', error);
@@ -90,20 +101,31 @@ export const SignUp = (props: ISignUpProps) => {
   };
 
   const handleRegistration = async (values: any, actions: any) => {
-    console.log('values', values);
-    console.log('actions', actions);
     setIsLoading(true);
     try {
       const response = await client.users.register(values);
       console.log('Register response', response);
       const {token, user} = response?.register;
-
       AsyncStorage.setItem(AUTH_TOKEN, token?.token);
-      AsyncStorage.setItem(REFRESH_TOKEN, token?.refresh_token);
-      getUserData();
+      onRegisterSuccess(token?.token, token?.refresh_token);
     } catch (error) {
       console.log('Register Error:', error);
+      onRegisterError();
+      setIsLoading(false);
     }
+  };
+
+  const onRegisterSuccess = (token: string, refresh_token: string) => {
+    Alert.alert('Success', 'You have successfully registered', [
+      {
+        text: 'OK',
+        onPress: () => getUserData(token, refresh_token),
+      },
+    ]);
+  };
+
+  const onRegisterError = () => {
+    Alert.alert('Error', 'An error occurred while registering');
   };
 
   return (

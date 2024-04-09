@@ -6,12 +6,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Navigations
 import { MainStack } from 'navigations';
+import { StatusBar } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
   return (
     <NavigationContainer>
+      <StatusBar barStyle="light-content" />
       <Stack.Navigator>
         <Stack.Screen
           name="MainStack"

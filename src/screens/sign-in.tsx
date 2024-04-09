@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 // Modules
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import { Alert } from 'react-native';
 import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -25,6 +26,7 @@ import {client} from 'services/api';
 
 // Constants
 import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import {AuthContext} from 'components/context/auth-context';
 
 // Interfaces
 interface ISignInProps {
@@ -83,15 +85,19 @@ export const SignIn = (props: ISignInProps) => {
   // States
   const [isLoading, setIsLoading] = useState(false);
 
-  const getUserData = async () => {
+  // Context
+  const {signIn} = useContext(AuthContext);
+
+  const getUserData = async (token: string, refresh_token: string) => {
     try {
       const response = await client.users.getUserData();
       console.log('Get User Data Response:', response);
-      AsyncStorage.setItem(USER_DATA, JSON.stringify(response));
+      signIn({token, refresh_token, user: response});
       setIsLoading(false);
-      navigation.navigate('HomeStack');
     } catch (error) {
       console.log('Get User Data Error:', error);
+      setIsLoading(false);
+      onLoginError();
     }
   };
 
@@ -101,13 +107,17 @@ export const SignIn = (props: ISignInProps) => {
       const response = await client.auth.login(values.email, values.password);
       console.log('Login Response:', response);
       const {token, refresh_token} = response;
-      AsyncStorage.setItem(AUTH_TOKEN, token);
-      AsyncStorage.setItem(REFRESH_TOKEN, refresh_token);
-      getUserData();
+      await AsyncStorage.setItem(AUTH_TOKEN, token);
+      getUserData(token, refresh_token);
     } catch (error) {
       console.log('Login Error:', error);
       setIsLoading(false);
+      onLoginError();
     }
+  };
+
+  const onLoginError = () => {
+    Alert.alert('Error', 'An error occurred while registering');
   };
 
   return (
@@ -124,6 +134,7 @@ export const SignIn = (props: ISignInProps) => {
                 labelText="Email"
                 placeholderText="Enter your email"
                 onChangeText={props.handleChange('email')}
+                error={props.errors.email}
                 inputProps={{
                   keyboardType: 'email-address',
                   autoCapitalize: 'none',
@@ -137,6 +148,7 @@ export const SignIn = (props: ISignInProps) => {
                 style={{marginTop: 20}}
                 onChangeText={props.handleChange('password')}
                 secureTextEntry={true}
+                error={props.errors.password}
                 inputProps={{
                   autoCapitalize: 'none',
                   value: props.values.password,

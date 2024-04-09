@@ -12,3 +12,7 @@ export const TOUCHABLE_AREA = {
 export const AUTH_TOKEN = 'AUTH_TOKEN';
 export const REFRESH_TOKEN = 'REFRESH_TOKEN';
 export const USER_DATA = 'USER_DATA';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_UP = 'SIGN_UP';
+export const SIGN_OUT = 'SIGN_OUT';
+export const USER_DATA_UPDATE = 'USER_DATA_UPDATE';

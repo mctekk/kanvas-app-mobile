@@ -61,7 +61,6 @@ export const AuthContainer = ({ children }: IAuthContainer) => {
 
   return (
     <AppContainerView>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <>
         <Image
           source={require('assets/images/background.png')}

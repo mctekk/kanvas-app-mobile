@@ -34,6 +34,7 @@ const Container = styled.View`
   align-items: center;
   padding-horizontal: ${SCREEN_MARGIN}px;
   padding-bottom: ${SCREEN_MARGIN}px;
+  background-color: ${Colors.PRIMARY};
 `;
 
 // @ts-ignore
@@ -81,6 +82,7 @@ const Header = (props: IProps) => {
     buttonTitleProps,
     onBackDetail,
     diableBackButton = false,
+    hasBackButton = true,
   } = props;
 
   const onBackPress = () => {
@@ -94,10 +96,19 @@ const Header = (props: IProps) => {
         <>{leftButtonComponent}</>
       ) : (
         <>
-          {closeButtonType === 'BACK' ? (
-            <BackButton onPress={onBackPress} disabled={diableBackButton} />
+          {hasBackButton ? (
+            <>
+              {closeButtonType === 'BACK' ? (
+                <BackButton onPress={onBackPress} disabled={diableBackButton} />
+              ) : (
+                <CloseButton
+                  onPress={onBackPress}
+                  disabled={diableBackButton}
+                />
+              )}
+            </>
           ) : (
-            <CloseButton onPress={onBackPress} disabled={diableBackButton} />
+            <IconContainer />
           )}
         </>
       )}

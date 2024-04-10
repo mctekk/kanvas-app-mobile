@@ -11,6 +11,7 @@ import { navigationScreen } from 'navigations/navigation-screen';
 import { Home } from 'screens/home';
 import { Settings } from 'screens/settings';
 import { DrawerContent } from 'components/molecules/drawer-content';
+import { Colors } from 'styles';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -18,8 +19,13 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = ({ navigation }) => {
   return (
     <Drawer.Navigator
-      screenOptions={{ headerShown: false }}
+      initialRouteName='Home'
       drawerContent={(props) => <DrawerContent {...props} />}
+      screenOptions={{ 
+        headerShown: false,
+        drawerActiveBackgroundColor: Colors.PRIMARY_CLEAR,
+        drawerLabelStyle: { color: Colors.PRIMARY },
+       }}
     >
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Settings" component={Settings} />

@@ -110,9 +110,9 @@ const MainStack = ({ navigation }) => {
   const authContext = React.useMemo(
     () => ({
       signIn: async data => {
-        AsyncStorage.setItem(AUTH_TOKEN, JSON.stringify(data.token));
+        AsyncStorage.setItem(AUTH_TOKEN, data.token);
         AsyncStorage.setItem(USER_DATA, JSON.stringify(data.user));
-        AsyncStorage.setItem(REFRESH_TOKEN, JSON.stringify(data.refresh_token));
+        AsyncStorage.setItem(REFRESH_TOKEN, data.refresh_token);
         dispatch({
           type: SIGN_IN,
           token: data.token,
@@ -121,9 +121,9 @@ const MainStack = ({ navigation }) => {
         });
       },
       signUp: async data => {
-        AsyncStorage.setItem(AUTH_TOKEN, JSON.stringify(data.token));
+        AsyncStorage.setItem(AUTH_TOKEN, data.token);
         AsyncStorage.setItem(USER_DATA, JSON.stringify(data.user));
-        AsyncStorage.setItem(REFRESH_TOKEN, JSON.stringify(data.refresh_token));
+        AsyncStorage.setItem(REFRESH_TOKEN, data.refresh_token);
         dispatch({
           type: SIGN_UP,
           token: data.token,

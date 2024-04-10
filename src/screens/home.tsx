@@ -77,14 +77,6 @@ export const Home = (props: IHomeProps) => {
     console.log('User Data:', userData);
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      signOut();
-    } catch (error) {
-      console.log('Logout Error:', error);
-    }
-  };
-
   const LeftButtonComponent = () => (
     <IconContainer onPress={() => navigation.openDrawer()}>
       <MenuIcon />
@@ -108,10 +100,6 @@ export const Home = (props: IHomeProps) => {
           <InfoText>Email: {userData?.email}</InfoText>
           <InfoText>Display Name: {userData?.displayname}</InfoText>
         </UserInfoContainer>
-
-        {/* <TouchableOpacity onPress={handleLogout}>
-          <Title>Logout</Title>
-        </TouchableOpacity> */}
       </Content>
     </Container>
   );

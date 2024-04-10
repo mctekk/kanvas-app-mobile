@@ -1,4 +1,5 @@
 export const PRIMARY = '#111827';
+export const PRIMARY_CLEAR = 'rgba(17, 24, 39, 0.2)';
 export const BLACK = '#000000';
 export const SOFT_BLACK = '#374151';
 export const BLACK_TRANSPARENT = 'rgba(0, 0, 0, 0.99)';

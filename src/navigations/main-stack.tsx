@@ -21,6 +21,7 @@ import {
   SIGN_UP,
 } from 'utils/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { client } from 'services/api';
 
 // Constants
 const Stack = createStackNavigator();
@@ -107,6 +108,16 @@ const MainStack = ({ navigation }) => {
     bootstrapAsync();
   }, []);
 
+  const onUserLogout = async () => {
+    try {
+      const response = await client.auth.logout();
+      await AsyncStorage.multiRemove([AUTH_TOKEN, USER_DATA, REFRESH_TOKEN]);
+    } catch (error) {
+      console.log('Logout Error:', error);
+      throw new Error(`An error occurred while logging out, ${error}`);
+    }
+  };
+
   const authContext = React.useMemo(
     () => ({
       signIn: async data => {
@@ -132,9 +143,7 @@ const MainStack = ({ navigation }) => {
         });
       },
       signOut: async () => {
-        AsyncStorage.removeItem(AUTH_TOKEN);
-        AsyncStorage.removeItem(USER_DATA);
-        AsyncStorage.removeItem(REFRESH_TOKEN);
+        onUserLogout();
         dispatch({ type: SIGN_OUT });
       },
       updateUserData: async data => {

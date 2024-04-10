@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 // Modules
 import React, {useContext, useEffect, useState} from 'react';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -27,6 +27,7 @@ import {client} from 'services/api';
 // Constants
 import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
 import {AuthContext} from 'components/context/auth-context';
+import LoadingModal from 'components/molecules/modals/loading-modal';
 
 // Interfaces
 interface ISignInProps {
@@ -45,12 +46,13 @@ const Content = styled.View`
 `;
 
 const Button = styled(CustomButton)`
-  margin-top: 20px;
-  width: 90px;
+  width: 100%;
   height: 40px;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+`;
+
+const ForgotPasswordButton = styled(CustomButton)`
+  top: 20px;
+  background-color: 'rgba(52, 52, 52, 0)';
 `;
 
 const SignUpButton = styled.TouchableOpacity`
@@ -158,9 +160,18 @@ export const SignIn = (props: ISignInProps) => {
             <Button
               title="Sign In"
               onPress={props.handleSubmit}
-              loading={isLoading}
               disabled={isLoading}
               style={{marginTop: 20}}
+            />
+
+            <ForgotPasswordButton
+              title="Forgot Password"
+              onPress={() => navigation.navigate('ForgotPassword')}
+              style={{marginTop: 10}}
+              textStyle={{
+                color: Colors.PRIMARY,
+                fontSize: Typography.FONT_SIZE_13,
+              }}
             />
           </AuthContainer>
         )}
@@ -168,6 +179,8 @@ export const SignIn = (props: ISignInProps) => {
       <SignUpButton onPress={() => navigation.navigate('SignUp')}>
         <SignUpText>Sign Up Now</SignUpText>
       </SignUpButton>
+
+      <LoadingModal visible={isLoading} title="Signing in..." />
     </>
   );
 };

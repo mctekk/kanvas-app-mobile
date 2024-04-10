@@ -33,7 +33,7 @@ interface ISignUpProps {
   navigation: any;
 }
 
-const HEADER_HEIGHT = 160;
+const HEADER_HEIGHT = 130;
 
 const Container = styled.View`
   flex: 1;
@@ -44,7 +44,7 @@ const ScreenHeader = styled(Header)`
   height: ${HEADER_HEIGHT}px;
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.SOFT_BLUE};
+  padding-top: 30px;
 `;
 
 const Content = styled.View`
@@ -92,7 +92,6 @@ export const SignUp = (props: ISignUpProps) => {
   const getUserData = async (token: string, refresh_token: string) => {
     try {
       const response = await client.users.getUserData();
-      console.log('getUserData', response);
       signUp({token, refresh_token, user: response});
       setIsLoading(false);
     } catch (error) {
@@ -104,7 +103,6 @@ export const SignUp = (props: ISignUpProps) => {
     setIsLoading(true);
     try {
       const response = await client.users.register(values);
-      console.log('Register response', response);
       const {token, user} = response?.register;
       AsyncStorage.setItem(AUTH_TOKEN, token?.token);
       onRegisterSuccess(token?.token, token?.refresh_token);

@@ -8,7 +8,6 @@ import { AUTH_TOKEN } from 'utils/constants';
 
 const getToken = async () => {
   const token = await AsyncStorage.getItem(AUTH_TOKEN);
-  console.log('Token:', token);
   return token;
 };
 

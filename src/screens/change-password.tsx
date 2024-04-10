@@ -99,7 +99,6 @@ export const ChangePassword = (props: IChangePasswordProps) => {
         values.new_password,
         values.new_password_confirmation,
       );
-      console.log('Response:', response);
       setIsLoading(false);
       Alert.alert('Success', 'Password updated successfully', [
         {text: 'OK', onPress: () => onUserLogout()},

@@ -76,6 +76,7 @@ export const EditProfile = (props: IEditProfileProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Context
+  const {updateUserData} = useContext(AuthContext);
   const {userData} = useContext(UserContext);
 
   const initialValues = {
@@ -102,6 +103,8 @@ export const EditProfile = (props: IEditProfileProps) => {
         userData?.id,
         dataToUpdate,
       );
+      console.log('Update User Data Response:', response);
+      updateUserData(response);
       Alert.alert('Success', 'Profile updated successfully');
       setIsLoading(false);
     } catch (error) {
@@ -177,7 +180,7 @@ export const EditProfile = (props: IEditProfileProps) => {
               />
 
               <Button
-                title="Sign Up"
+                title="Save changes"
                 onPress={props.handleSubmit}
                 loading={isLoading}
                 disabled={isLoading}

@@ -35,19 +35,15 @@ interface IEditProfileProps {
   navigation: any;
 }
 
-const HEADER_HEIGHT = 130;
-
 const Container = styled.View`
   flex: 1;
   background-color: #fff;
 `;
 
 const ScreenHeader = styled(Header)`
-  height: ${HEADER_HEIGHT}px;
   justify-content: space-between;
   align-items: center;
   background-color: ${Colors.PRIMARY};
-  padding-top: 30px;
 `;
 
 const Content = styled.View`

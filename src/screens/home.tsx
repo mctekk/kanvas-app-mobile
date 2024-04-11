@@ -23,11 +23,9 @@ const Container = styled.View`
 `;
 
 const ScreenHeader = styled(Header)`
-  height: 130px;
   justify-content: space-between;
   align-items: center;
   background-color: ${Colors.PRIMARY};
-  padding-top: 30px;
 `;
 
 const Content = styled.SafeAreaView`

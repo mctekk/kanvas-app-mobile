@@ -41,10 +41,8 @@ const Container = styled.View`
 `;
 
 const ScreenHeader = styled(Header)`
-  height: ${HEADER_HEIGHT}px;
   justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
 `;
 
 const Content = styled.View`

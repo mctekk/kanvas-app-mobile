@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Config from 'react-native-config';
 
 // Molcules
 import TextInput from 'components/molecules/text-input';
@@ -89,6 +90,10 @@ export const SignIn = (props: ISignInProps) => {
 
   // Context
   const {signIn} = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log('Config:', Config.APP_CONFIG);
+  }, []);
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {

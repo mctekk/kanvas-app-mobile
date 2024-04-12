@@ -16,3 +16,4 @@ export const SIGN_IN = 'SIGN_IN';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_OUT = 'SIGN_OUT';
 export const USER_DATA_UPDATE = 'USER_DATA_UPDATE';
+export const UPDATE_TOKEN = 'UPDATE_TOKEN';

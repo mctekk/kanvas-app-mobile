@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "bundle:ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios"
+    "bundle:ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
+    "ios:dev": "yarn setDevelopment  react-native run-ios --mode=Debug --scheme \"dev\""
   },
   "dependencies": {
     "@kanvas/core": "^0.0.109",
@@ -25,6 +26,7 @@
     "i18n-js": "^4.4.3",
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-config": "^1.5.1",
     "react-native-formik": "^1.7.8",
     "react-native-gesture-handler": "^2.16.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",

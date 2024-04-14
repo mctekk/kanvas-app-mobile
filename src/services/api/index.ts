@@ -1,6 +1,7 @@
 // Modules
 import KanvasCore, { genericAuthMiddleware } from '@kanvas/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Config from 'react-native-config';
 
 // Constants
 import { AUTH_TOKEN } from 'utils/constants';
@@ -12,7 +13,7 @@ const getToken = async () => {
 };
 
 export const client = new KanvasCore({
-  url: 'https://graphapidev.kanvas.dev/graphql',
-  key: '7d0488b2-632e-4045-9d2d-370d9161644a',
+  url: `${Config.KANVAS_URL}`,
+  key: `${Config.KANVAS_KEY}`,
   middlewares: [genericAuthMiddleware(getToken)],
 });

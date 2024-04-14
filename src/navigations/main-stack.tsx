@@ -19,6 +19,7 @@ import {
   SIGN_OUT,
   USER_DATA_UPDATE,
   SIGN_UP,
+  UPDATE_TOKEN,
 } from 'utils/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { client } from 'services/api';
@@ -70,6 +71,12 @@ const MainStack = ({ navigation }) => {
             refresh_token: null,
             userData: null,
           };
+        case UPDATE_TOKEN:
+          return {
+            ...prevState,
+            userToken: action.token,
+            refresh_token: action.refresh_token,
+          };
       }
     },
     {
@@ -81,15 +88,38 @@ const MainStack = ({ navigation }) => {
     },
   );
 
+  const onRefreshToken = async () => {
+    try {
+      const refresh_token = await AsyncStorage.getItem(REFRESH_TOKEN);
+
+      if (refresh_token == null) {
+        dispatch({ type: SIGN_OUT });
+        return;
+      }
+
+      const response = await client.auth.refreshToken(refresh_token);
+      const { refreshToken } = response;
+      console.log('Refresh Token Response:', response);
+      await AsyncStorage.setItem(AUTH_TOKEN, refreshToken.token);
+      dispatch({
+        type: UPDATE_TOKEN,
+        token: refreshToken.token,
+      });
+    } catch (error) {
+      console.log('Refresh Token Error:', error);
+      dispatch({ type: SIGN_OUT });
+    }
+  };
+
   useEffect(() => {
     const bootstrapAsync = async () => {
       let userToken;
       let userData;
       let rooftopSelected;
       try {
+        onRefreshToken();
         const token = await AsyncStorage.getItem(AUTH_TOKEN);
-        const tokenInfo = JSON.parse(token || ''); // Provide a default value of an empty string
-        userToken = tokenInfo;
+        userToken = token;
 
         const user = await AsyncStorage.getItem(USER_DATA);
         const userInfo = JSON.parse(user || ''); // Provide a default value of an empty string

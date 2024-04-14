@@ -91,6 +91,12 @@ const MainStack = ({ navigation }) => {
   const onRefreshToken = async () => {
     try {
       const refresh_token = await AsyncStorage.getItem(REFRESH_TOKEN);
+
+      if (refresh_token == null) {
+        dispatch({ type: SIGN_OUT });
+        return;
+      }
+
       const response = await client.auth.refreshToken(refresh_token);
       const { refreshToken } = response;
       console.log('Refresh Token Response:', response);

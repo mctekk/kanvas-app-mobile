@@ -1,32 +1,33 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-shadow */
 // Modules
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Alert} from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Alert } from 'react-native';
 
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
 
 // Styles
-import {Colors} from 'styles';
+import { Colors } from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
 
 // Api
-import {client} from 'services/api';
+import { client } from 'services/api';
 
 // Utils
-import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 
 // Context
-import {AuthContext} from 'components/context/auth-context';
+import { AuthContext } from 'components/context/auth-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Interfaces
 interface ISignUpProps {
@@ -69,15 +70,23 @@ const initialValues = {
 };
 
 const validationSchema = yup.object().shape({
-  email: yup.string().required('This field is requiered'),
-  firstname: yup.string().required('This field is requiered'),
-  lastname: yup.string().required('This field is requiered'),
-  displayname: yup.string().required('This field is requiered'),
-  password: yup.string().required('This field is requiered'),
+  email: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  firstname: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
+  lastname: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
+  displayname: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
+  password: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
   password_confirmation: yup
     .string()
     .oneOf([yup.ref('password')], 'Passwords do not match')
-    .required('This field is requiered.'),
+    .required(translate('fieldRequired', TextTransform.NONE)),
 });
 
 export const SignUp = (props: ISignUpProps) => {
@@ -85,12 +94,12 @@ export const SignUp = (props: ISignUpProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Context
-  const {signUp} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
       const response = await client.users.getUserData();
-      signUp({token, refresh_token, user: response});
+      signUp({ token, refresh_token, user: response });
       setIsLoading(false);
     } catch (error) {
       console.log('getUserData Error:', error);
@@ -101,7 +110,7 @@ export const SignUp = (props: ISignUpProps) => {
     setIsLoading(true);
     try {
       const response = await client.users.register(values);
-      const {token, user} = response?.register;
+      const { token, user } = response?.register;
       AsyncStorage.setItem(AUTH_TOKEN, token?.token);
       onRegisterSuccess(token?.token, token?.refresh_token);
     } catch (error) {
@@ -112,21 +121,28 @@ export const SignUp = (props: ISignUpProps) => {
   };
 
   const onRegisterSuccess = (token: string, refresh_token: string) => {
-    Alert.alert('Success', 'You have successfully registered', [
-      {
-        text: 'OK',
-        onPress: () => getUserData(token, refresh_token),
-      },
-    ]);
+    Alert.alert(
+      translate('success', TextTransform.CAPITALIZE),
+      translate('registerSuccessMsg', TextTransform.CAPITALIZE),
+      [
+        {
+          text: translate('ok', TextTransform.CAPITALIZE),
+          onPress: () => getUserData(token, refresh_token),
+        },
+      ],
+    );
   };
 
   const onRegisterError = () => {
-    Alert.alert('Error', 'An error occurred while registering');
+    Alert.alert(
+      translate('error', TextTransform.CAPITALIZE),
+      translate('registerErrorMsg', TextTransform.CAPITALIZE),
+    );
   };
 
   return (
     <Container>
-      <ScreenHeader title="Sign Up" />
+      <ScreenHeader title={translate('signUp', TextTransform.CAPITALIZE)} />
 
       <Formik
         initialValues={initialValues}
@@ -135,11 +151,11 @@ export const SignUp = (props: ISignUpProps) => {
         {props => (
           <KeyboardAwareScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{paddingBottom: 50}}>
+            contentContainerStyle={{ paddingBottom: 50 }}>
             <Content>
               <Input
-                labelText="Email"
-                placeholderText="Enter your email"
+                labelText={translate('email', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderMail', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('email')}
                 error={props.errors.email}
                 inputProps={{
@@ -150,8 +166,8 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Input
-                labelText="Firstname"
-                placeholderText="Enter your firstname"
+                labelText={translate('firstName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderFirstName', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('firstname')}
                 error={props.errors.firstname}
                 inputProps={{
@@ -161,8 +177,8 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Input
-                labelText="Lastname"
-                placeholderText="Enter your lastname"
+                labelText={translate('lastName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderLastName', TextTransform.NONE)}
                 onChangeText={props.handleChange('lastname')}
                 error={props.errors.lastname}
                 inputProps={{
@@ -172,8 +188,8 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Input
-                labelText="Displayname"
-                placeholderText="Enter your displayname"
+                labelText={translate('displayName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderDisplayName', TextTransform.NONE)}
                 onChangeText={props.handleChange('displayname')}
                 error={props.errors.displayname}
                 inputProps={{
@@ -183,8 +199,8 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Input
-                labelText="Password"
-                placeholderText="Enter your password"
+                labelText={translate('password', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderPassword', TextTransform.NONE)}
                 onChangeText={props.handleChange('password')}
                 error={props.errors.password}
                 secureTextEntry={true}
@@ -195,8 +211,8 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Input
-                labelText="Confirm Password"
-                placeholderText="Confirm your password"
+                labelText={translate('confirmPassword', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderConfirmPassword', TextTransform.NONE)}
                 onChangeText={props.handleChange('password_confirmation')}
                 error={props.errors.password_confirmation}
                 secureTextEntry={true}
@@ -207,7 +223,7 @@ export const SignUp = (props: ISignUpProps) => {
               />
 
               <Button
-                title="Sign Up"
+                title={translate('signUp', TextTransform.CAPITALIZE)}
                 onPress={props.handleSubmit}
                 loading={isLoading}
                 disabled={isLoading}

@@ -2,6 +2,7 @@
 import { ChangePassword } from "screens/change-password";
 import { EditProfile } from "screens/edit-profile";
 import { Home } from "screens/home";
+import { Inventory } from "screens/invetory";
 import { SignIn } from "screens/sign-in";
 import { SignUp } from "screens/sign-up";
 
@@ -38,5 +39,12 @@ export const navigationScreen = [
     options: {
       navigationDefaultOptions,
     },
-  }
+  },
+  {
+    name: 'Inventory',
+    screen: Inventory,
+    options: {
+      navigationDefaultOptions,
+    },
+  },
 ];

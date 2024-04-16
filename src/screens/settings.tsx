@@ -5,6 +5,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MenuIcon from 'assets/icons/menu-icon';
 import Button from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 import {AuthContext} from 'components/context/auth-context';
 import {UserContext} from 'components/context/user-context';
 import Header from 'components/molecules/header';
@@ -65,12 +66,12 @@ const LogoutButton = styled(Button)`
 const data = [
   {
     key: 1,
-    name: 'Edit Profile',
+    name: translate('editProfile', TextTransform.CAPITALIZE),
     goTo: 'EditProfile',
   },
   {
     key: 2,
-    name: 'Change Password',
+    name: translate('changePassword', TextTransform.CAPITALIZE),
     goTo: 'ChangePassword',
   },
 ];
@@ -116,7 +117,7 @@ export const Settings = (props: ISettingsProps) => {
   return (
     <Container>
       <ScreenHeader
-        title="Settings"
+        title={translate('settings', TextTransform.CAPITALIZE)}
         leftButtonComponent={<LeftButtonComponent />}
       />
 
@@ -130,7 +131,7 @@ export const Settings = (props: ISettingsProps) => {
 
         <LogoutButton
           onPress={handleLogout}
-          title="Logout"
+          title={translate('logout', TextTransform.CAPITALIZE)}
           textStyle={{
             color: Colors.WHITE,
             fontSize: Typography.FONT_SIZE_16,

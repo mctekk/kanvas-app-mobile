@@ -1,23 +1,24 @@
 // Modules
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as yup from 'yup';
-import { Alert, StyleSheet } from 'react-native';
+import {Alert, StyleSheet} from 'react-native';
 
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
 
 // Styles
-import { Colors, Typography } from 'styles';
+import {Colors, Typography} from 'styles';
 
 // Atoms
 import Text from 'components/atoms/text';
 import Button from 'components/atoms/button';
-import { client } from 'services/api';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {client} from 'services/api';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import LoadingModal from 'components/molecules/modals/loading-modal';
+import {TextTransform, translate} from 'components/atoms/localized-label';
 
 // Interfaces
 interface IForgotPasswordProps {
@@ -76,7 +77,7 @@ const validationSchema = yup.object().shape({
 
 export const ForgotPassword = (props: IForgotPasswordProps) => {
   // Props
-  const { navigation } = props;
+  const {navigation} = props;
 
   // State
   const [isLoading, setIsLoading] = useState(false);
@@ -101,11 +102,15 @@ export const ForgotPassword = (props: IForgotPasswordProps) => {
 
   return (
     <Container>
-      <ScreenHeader title="Forgot Password" />
+      <ScreenHeader
+        title={translate('forgotPassword', TextTransform.CAPITALIZE)}
+      />
 
       <Content contentContainerStyle={styles.contentContainerStyle}>
-        <Title>Forgot your password?</Title>
-        <Subtitle>Enter your email for password recovery</Subtitle>
+        <Title>{translate('forgotYourPassword', TextTransform.NONE)}</Title>
+        <Subtitle>
+          {translate('forgotYourPasswordMsg', TextTransform.NONE)}
+        </Subtitle>
 
         <Formik
           initialValues={initialValues}
@@ -114,8 +119,14 @@ export const ForgotPassword = (props: IForgotPasswordProps) => {
           {props => (
             <>
               <Input
-                labelText="What's your email?"
-                placeholderText="Enter your email"
+                labelText={translate(
+                  'forgotPassEmailInput',
+                  TextTransform.NONE,
+                )}
+                placeholderText={translate(
+                  'placeholderMail',
+                  TextTransform.NONE,
+                )}
                 labelFontSize={Typography.FONT_SIZE_12}
                 onChangeText={props.handleChange('email')}
                 error={props.errors.email}
@@ -129,9 +140,9 @@ export const ForgotPassword = (props: IForgotPasswordProps) => {
               />
 
               <SendButton
-                title="Send Email"
+                title={translate('sendMail', TextTransform.NONE)}
                 onPress={props.handleSubmit}
-                style={{ marginTop: 20 }}
+                style={{marginTop: 20}}
                 loading={isLoading}
                 disabled={isLoading}
               />
@@ -141,7 +152,6 @@ export const ForgotPassword = (props: IForgotPasswordProps) => {
       </Content>
 
       <LoadingModal visible={isLoading} />
-
     </Container>
   );
 };

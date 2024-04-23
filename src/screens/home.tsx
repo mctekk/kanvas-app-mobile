@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-hooks/exhaustive-deps */
 // Modules
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Icons
@@ -11,11 +12,13 @@ import MenuIcon from 'assets/icons/menu-icon';
 import Header from 'components/molecules/header';
 
 // Styles
-import {Colors, Typography} from 'styles';
+import { Colors, Typography } from 'styles';
 
 // Context
-import {AuthContext} from 'components/context/auth-context';
-import {UserContext} from 'components/context/user-context';
+import { AuthContext } from 'components/context/auth-context';
+import { UserContext } from 'components/context/user-context';
+import Button from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 const Container = styled.View`
   flex: 1;
@@ -65,11 +68,11 @@ interface IHomeProps {
 
 export const Home = (props: IHomeProps) => {
   // Props
-  const {navigation} = props;
+  const { navigation } = props;
 
   // Context
-  const {signOut} = useContext(AuthContext);
-  const {userData} = useContext(UserContext);
+  const { signOut } = useContext(AuthContext);
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
     console.log('User Data:', userData);
@@ -84,7 +87,7 @@ export const Home = (props: IHomeProps) => {
   return (
     <Container>
       <ScreenHeader
-        title="Home"
+        title={translate('home', TextTransform.CAPITALIZE)}
         leftButtonComponent={<LeftButtonComponent />}
       />
 
@@ -92,12 +95,18 @@ export const Home = (props: IHomeProps) => {
         <Title>Kanvas Home</Title>
 
         <UserInfoContainer>
-          <InfoText>Id: {userData?.id}</InfoText>
-          <InfoText>First Name: {userData?.firstname}</InfoText>
-          <InfoText>Last Name: {userData?.lastname}</InfoText>
-          <InfoText>Email: {userData?.email}</InfoText>
-          <InfoText>Display Name: {userData?.displayname}</InfoText>
+          <InfoText>{translate('id', TextTransform.CAPITALIZE)}: {userData?.id}</InfoText>
+          <InfoText>{translate('firstName', TextTransform.CAPITALIZE)}: {userData?.firstname}</InfoText>
+          <InfoText>{translate('lastName', TextTransform.CAPITALIZE)}: {userData?.lastname}</InfoText>
+          <InfoText>{translate('email', TextTransform.CAPITALIZE)}: {userData?.email}</InfoText>
+          <InfoText>{translate('displayName', TextTransform.CAPITALIZE)}: {userData?.displayname}</InfoText>
         </UserInfoContainer>
+
+        <Button
+          title='Go to Inventory Screen'
+          onPress={() => navigation.navigate('Inventory')}
+        />
+
       </Content>
     </Container>
   );

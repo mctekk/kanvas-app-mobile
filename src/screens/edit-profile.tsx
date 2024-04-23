@@ -1,34 +1,35 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-shadow */
 // Modules
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Alert} from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Alert } from 'react-native';
 
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
 
 // Styles
-import {Colors} from 'styles';
+import { Colors } from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
 
 // Api
-import {client} from 'services/api';
+import { client } from 'services/api';
 
 // Utils
-import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 
 // Context
-import {AuthContext} from 'components/context/auth-context';
+import { AuthContext } from 'components/context/auth-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {UserContext} from 'components/context/user-context';
+import { UserContext } from 'components/context/user-context';
 import LoadingModal from 'components/molecules/modals/loading-modal';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Interfaces
 interface IEditProfileProps {
@@ -61,10 +62,10 @@ const Button = styled(CustomButton)`
 `;
 
 const validationSchema = yup.object().shape({
-  email: yup.string().required('This field is requiered'),
-  firstname: yup.string().required('This field is requiered'),
-  lastname: yup.string().required('This field is requiered'),
-  displayname: yup.string().required('This field is requiered'),
+  email: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  firstname: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  lastname: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  displayname: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
 });
 
 export const EditProfile = (props: IEditProfileProps) => {
@@ -72,8 +73,8 @@ export const EditProfile = (props: IEditProfileProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Context
-  const {updateUserData} = useContext(AuthContext);
-  const {userData} = useContext(UserContext);
+  const { updateUserData } = useContext(AuthContext);
+  const { userData } = useContext(UserContext);
 
   const initialValues = {
     email: userData?.email || '',
@@ -112,7 +113,9 @@ export const EditProfile = (props: IEditProfileProps) => {
 
   return (
     <Container>
-      <ScreenHeader title="Edit Profile" />
+      <ScreenHeader
+        title={translate('editProfile', TextTransform.CAPITALIZE)}
+      />
 
       <Formik
         initialValues={initialValues}
@@ -121,11 +124,11 @@ export const EditProfile = (props: IEditProfileProps) => {
         {props => (
           <KeyboardAwareScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{paddingBottom: 50}}>
+            contentContainerStyle={{ paddingBottom: 50 }}>
             <Content>
               <Input
-                labelText="Email"
-                placeholderText="Enter your email"
+                labelText={translate('email', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderMail', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('email')}
                 editable={false}
                 error={props.errors.email}
@@ -139,8 +142,8 @@ export const EditProfile = (props: IEditProfileProps) => {
               />
 
               <Input
-                labelText="Firstname"
-                placeholderText="Enter your firstname"
+                labelText={translate('firstName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderFirstName', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('firstname')}
                 error={props.errors.firstname}
                 inputProps={{
@@ -151,8 +154,8 @@ export const EditProfile = (props: IEditProfileProps) => {
               />
 
               <Input
-                labelText="Lastname"
-                placeholderText="Enter your lastname"
+                labelText={translate('lastName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderLastName', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('lastname')}
                 error={props.errors.lastname}
                 inputProps={{
@@ -163,8 +166,8 @@ export const EditProfile = (props: IEditProfileProps) => {
               />
 
               <Input
-                labelText="Displayname"
-                placeholderText="Enter your displayname"
+                labelText={translate('displayName', TextTransform.CAPITALIZE)}
+                placeholderText={translate('placeholderDisplayName', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('displayname')}
                 error={props.errors.displayname}
                 editable={false}
@@ -176,7 +179,7 @@ export const EditProfile = (props: IEditProfileProps) => {
               />
 
               <Button
-                title="Save changes"
+                title={translate('saveChanges', TextTransform.CAPITALIZE)}
                 onPress={props.handleSubmit}
                 loading={isLoading}
                 disabled={isLoading}

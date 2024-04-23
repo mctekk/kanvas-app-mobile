@@ -1,34 +1,35 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-shadow */
 // Modules
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Alert} from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Alert } from 'react-native';
 
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
 
 // Styles
-import {Colors} from 'styles';
+import { Colors } from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
 
 // Api
-import {client} from 'services/api';
+import { client } from 'services/api';
 
 // Utils
-import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 
 // Context
-import {AuthContext} from 'components/context/auth-context';
+import { AuthContext } from 'components/context/auth-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {UserContext} from 'components/context/user-context';
+import { UserContext } from 'components/context/user-context';
 import LoadingModal from 'components/molecules/modals/loading-modal';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Interfaces
 interface IChangePasswordProps {
@@ -71,12 +72,12 @@ const initialValues = {
 };
 
 const validationSchema = yup.object().shape({
-  current_password: yup.string().required('This field is requiered'),
-  new_password: yup.string().required('This field is requiered'),
+  current_password: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  new_password: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
   new_password_confirmation: yup
     .string()
     .oneOf([yup.ref('new_password')], 'Passwords do not match')
-    .required('This field is requiered.'),
+    .required(translate('fieldRequired', TextTransform.NONE)),
 });
 
 export const ChangePassword = (props: IChangePasswordProps) => {
@@ -84,8 +85,8 @@ export const ChangePassword = (props: IChangePasswordProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Context
-  const {userData} = useContext(UserContext);
-  const {signOut} = useContext(AuthContext);
+  const { userData } = useContext(UserContext);
+  const { signOut } = useContext(AuthContext);
 
   const onUserLogout = async () => {
     signOut();
@@ -101,7 +102,7 @@ export const ChangePassword = (props: IChangePasswordProps) => {
       );
       setIsLoading(false);
       Alert.alert('Success', 'Password updated successfully', [
-        {text: 'OK', onPress: () => onUserLogout()},
+        { text: 'OK', onPress: () => onUserLogout() },
       ]);
     } catch (error) {
       console.log('Error:', error);
@@ -112,7 +113,9 @@ export const ChangePassword = (props: IChangePasswordProps) => {
 
   return (
     <Container>
-      <ScreenHeader title="Edit Profile" />
+      <ScreenHeader
+        title={translate('changePassword', TextTransform.CAPITALIZE)}
+      />
 
       <Formik
         initialValues={initialValues}
@@ -121,11 +124,11 @@ export const ChangePassword = (props: IChangePasswordProps) => {
         {props => (
           <KeyboardAwareScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{paddingBottom: 50}}>
+            contentContainerStyle={{ paddingBottom: 50 }}>
             <Content>
               <Input
-                labelText="Current Password"
-                placeholderText="Enter your current password"
+                labelText={translate('currentPassword', TextTransform.CAPITALIZE)}
+                placeholderText={translate('currentPasswordPlaceHolder', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('current_password')}
                 error={props.errors.current_password}
                 secureTextEntry={true}
@@ -136,8 +139,8 @@ export const ChangePassword = (props: IChangePasswordProps) => {
               />
 
               <Input
-                labelText="New Password"
-                placeholderText="Enter your new password"
+                labelText={translate('newPassword', TextTransform.CAPITALIZE)}
+                placeholderText={translate('newPasswordPlaceHolder', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('new_password')}
                 error={props.errors.new_password}
                 secureTextEntry={true}
@@ -148,8 +151,8 @@ export const ChangePassword = (props: IChangePasswordProps) => {
               />
 
               <Input
-                labelText="Confirm new Password"
-                placeholderText="Confirm your new password"
+                labelText={translate('confirmNewPassword', TextTransform.CAPITALIZE)}
+                placeholderText={translate('confirmNewPasswordPlaceHolder', TextTransform.CAPITALIZE)}
                 onChangeText={props.handleChange('new_password_confirmation')}
                 error={props.errors.new_password_confirmation}
                 secureTextEntry={true}
@@ -160,7 +163,7 @@ export const ChangePassword = (props: IChangePasswordProps) => {
               />
 
               <Button
-                title="Change Password"
+                title={translate('changePassword', TextTransform.CAPITALIZE)}
                 onPress={props.handleSubmit}
                 loading={isLoading}
                 disabled={isLoading}
@@ -170,7 +173,10 @@ export const ChangePassword = (props: IChangePasswordProps) => {
         )}
       </Formik>
 
-      <LoadingModal visible={isLoading} title="Saving changes..." />
+      <LoadingModal
+        visible={isLoading}
+        title={translate('savingChanges', TextTransform.CAPITALIZE)}
+      />
     </Container>
   );
 };

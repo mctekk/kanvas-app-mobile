@@ -22,6 +22,7 @@ const ButtonContainer = styled.TouchableOpacity`
   align-items: center;
   margin-top: 32px;
   border-radius: 2px;
+  height: 50px;
 `;
 
 const ButtonText = styled(Text)`

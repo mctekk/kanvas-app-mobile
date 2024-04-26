@@ -3,7 +3,7 @@
    LastUpgradeVersion = "1520"
    version = "2.2">
    <BuildAction
-      parallelizeBuildables = "YES"
+      parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
       <PreActions>
          <ExecutionAction

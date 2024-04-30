@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 // Modules
 import React, { useContext, useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -196,7 +196,9 @@ export const SignIn = (props: ISignInProps) => {
             />
 
             <SocialContainer>
-              <SignWithApple isSmall onLogin={onSocialLogin} />
+              {Platform.OS === 'ios' && (
+                <SignWithApple isSmall onLogin={onSocialLogin} />
+              )}
               <SignWithFacebook isSmall onLogin={onSocialLogin} />
             </SocialContainer>
 

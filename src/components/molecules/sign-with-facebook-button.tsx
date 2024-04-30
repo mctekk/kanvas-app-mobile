@@ -1,20 +1,24 @@
 // Modules
 import React from 'react';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
+import {
+  LoginManager,
+  GraphRequest,
+  GraphRequestManager,
+} from 'react-native-fbsdk-next';
 
 // Atoms
-import {translate, TextTransform} from 'atoms/localized-label';
+import { translate, TextTransform } from 'atoms/localized-label';
 import SmallButton from 'atoms/small-button';
 
 // Styles
-import {Colors} from 'styles';
+import { Colors } from 'styles';
 
 // Molecules
-import PillButton, {PillButtonProps} from './pill-button';
+import PillButton, { PillButtonProps } from './pill-button';
 
 // Utils
-import {isIphoneX} from 'utils/iphone-helpers';
+import { isIphoneX } from 'utils/iphone-helpers';
 
 interface SocialButtonIconsProps {
   isSmall?: boolean;
@@ -28,24 +32,32 @@ const FacebookIcon = () => (
 const SignWithFacebook = (
   props: Partial<PillButtonProps, SocialButtonIconsProps>,
 ) => {
-  const {isSmall = false} = props;
+  const { isSmall = false, onLogin } = props;
 
   const handleLogin = async () => {
-    LoginManager.logInWithPermissions(['public_profile']).then(
-      result => {
-        if (result.isCancelled) {
-          console.log('Login cancelled');
-        } else {
-          console.log(
-            'Login success with permissions: ' +
-              result.grantedPermissions.toString(),
-          );
-        }
-      },
-      error => {
-        console.log('Login fail with error: ' + error);
-      },
-    );
+    console.log('Facebook Login');
+    try {
+      const loginState = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+      console.log('Login State: ', loginState);
+      if (!loginState.isCancelled) {
+        const infoRequest = new GraphRequest(
+          '/me?fields=name,picture,email',
+          null,
+          (error: any, user: ISocialLoginUser) => {
+            if (!error) {
+              console.log('Facebok User Info: ', user);
+              // HERE: Implement the logic to handle the user data
+              onLogin?.('facebook', user);
+            } else {
+              console.log('Error fetching data: ');
+            }
+          },
+        );
+        new GraphRequestManager().addRequest(infoRequest).start();
+      }
+    } catch (error) {
+      console.log('Facebook Login Error:', error);
+    }
   };
 
   if (!isSmall) {

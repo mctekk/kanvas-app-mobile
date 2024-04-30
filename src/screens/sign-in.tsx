@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 // Modules
-import React, { useContext, useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {Alert} from 'react-native';
 import styled from 'styled-components';
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import * as yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from 'react-native-config';
@@ -17,19 +17,21 @@ import CustomButton from 'components/atoms/button';
 import Text from 'components/atoms/text';
 
 // Organisms
-import { AuthContainer } from 'components/organisms/auth-container';
+import {AuthContainer} from 'components/organisms/auth-container';
 
 // Styles
-import { Colors, Typography } from 'styles';
+import {Colors, Typography} from 'styles';
 
 // Services
-import { client } from 'services/api';
+import {client} from 'services/api';
 
 // Constants
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
-import { AuthContext } from 'components/context/auth-context';
+import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import {AuthContext} from 'components/context/auth-context';
 import LoadingModal from 'components/molecules/modals/loading-modal';
-import { TextTransform, translate } from 'components/atoms/localized-label';
+import {TextTransform, translate} from 'components/atoms/localized-label';
+import SignWithApple from 'components/molecules/sign-with-apple-button';
+import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
 
 // Interfaces
 interface ISignInProps {
@@ -72,6 +74,13 @@ const SignUpText = styled(Text)`
   color: ${Colors.SOFT_BLACK};
 `;
 
+const SocialContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
 const initialValues = {
   email: '',
   password: '',
@@ -79,18 +88,20 @@ const initialValues = {
 
 const validationSchema = yup.object().shape({
   email: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
-  password: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  password: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
 });
 
 export const SignIn = (props: ISignInProps) => {
   // Props
-  const { navigation } = props;
+  const {navigation} = props;
 
   // States
   const [isLoading, setIsLoading] = useState(false);
 
   // Context
-  const { signIn } = useContext(AuthContext);
+  const {signIn} = useContext(AuthContext);
 
   useEffect(() => {
     console.log('Config:', Config.APP_CONFIG);
@@ -100,7 +111,7 @@ export const SignIn = (props: ISignInProps) => {
     try {
       const response = await client.users.getUserData();
       console.log('Get User Data Response:', response);
-      signIn({ token, refresh_token, user: response });
+      signIn({token, refresh_token, user: response});
       setIsLoading(false);
     } catch (error) {
       console.log('Get User Data Error:', error);
@@ -114,7 +125,7 @@ export const SignIn = (props: ISignInProps) => {
     try {
       const response = await client.auth.login(values.email, values.password);
       console.log('Login Response:', response);
-      const { token, refresh_token } = response;
+      const {token, refresh_token} = response;
       await AsyncStorage.setItem(AUTH_TOKEN, token);
       getUserData(token, refresh_token);
     } catch (error) {
@@ -125,8 +136,15 @@ export const SignIn = (props: ISignInProps) => {
   };
 
   const onLoginError = () => {
-    Alert.alert(translate('error', TextTransform.CAPITALIZE), translate('errorMsg', TextTransform.CAPITALIZE));
+    Alert.alert(
+      translate('error', TextTransform.CAPITALIZE),
+      translate('errorMsg', TextTransform.CAPITALIZE),
+    );
   };
+
+  const onSocialLogin = (provider: string) => {
+
+   }
 
   return (
     <>
@@ -140,7 +158,10 @@ export const SignIn = (props: ISignInProps) => {
             <Content>
               <TextInput
                 labelText={translate('email', TextTransform.CAPITALIZE)}
-                placeholderText={translate('placeholderMail', TextTransform.CAPITALIZE)}
+                placeholderText={translate(
+                  'placeholderMail',
+                  TextTransform.CAPITALIZE,
+                )}
                 onChangeText={props.handleChange('email')}
                 error={props.errors.email}
                 inputProps={{
@@ -152,8 +173,11 @@ export const SignIn = (props: ISignInProps) => {
 
               <TextInput
                 labelText={translate('password', TextTransform.CAPITALIZE)}
-                placeholderText={translate('placeholderPassword', TextTransform.CAPITALIZE)}
-                style={{ marginTop: 20 }}
+                placeholderText={translate(
+                  'placeholderPassword',
+                  TextTransform.CAPITALIZE,
+                )}
+                style={{marginTop: 20}}
                 onChangeText={props.handleChange('password')}
                 secureTextEntry={true}
                 error={props.errors.password}
@@ -163,17 +187,23 @@ export const SignIn = (props: ISignInProps) => {
                 }}
               />
             </Content>
+
             <Button
               title={translate('signIn', TextTransform.CAPITALIZE)}
               onPress={props.handleSubmit}
               disabled={isLoading}
-              style={{ marginTop: 20 }}
+              style={{marginTop: 20}}
             />
+
+            <SocialContainer>
+              <SignWithApple isSmall onLogin={onSocialLogin}/>
+              <SignWithFacebook isSmall onLogin={onSocialLogin}/>
+            </SocialContainer>
 
             <ForgotPasswordButton
               title={translate('forgotPassword', TextTransform.CAPITALIZE)}
               onPress={() => navigation.navigate('ForgotPassword')}
-              style={{ marginTop: 10 }}
+              style={{marginTop: 10}}
               textStyle={{
                 color: Colors.PRIMARY,
                 fontSize: Typography.FONT_SIZE_13,
@@ -182,11 +212,17 @@ export const SignIn = (props: ISignInProps) => {
           </AuthContainer>
         )}
       </Formik>
+
       <SignUpButton onPress={() => navigation.navigate('SignUp')}>
-        <SignUpText>{translate('signUpNow', TextTransform.CAPITALIZE)}</SignUpText>
+        <SignUpText>
+          {translate('signUpNow', TextTransform.CAPITALIZE)}
+        </SignUpText>
       </SignUpButton>
 
-      <LoadingModal visible={isLoading} title={translate('signingIn', TextTransform.CAPITALIZE)} />
+      <LoadingModal
+        visible={isLoading}
+        title={translate('signingIn', TextTransform.CAPITALIZE)}
+      />
     </>
   );
 };

@@ -495,7 +495,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EF70C7534D67A3E6E938A7 /* Pods-kanvas_app.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

@@ -32,6 +32,7 @@ import LoadingModal from 'components/molecules/modals/loading-modal';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 import SignWithApple from 'components/molecules/sign-with-apple-button';
 import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
+import SignWithGoogle from 'components/molecules/sign-with-google-button';
 
 // Interfaces
 interface ISignInProps {
@@ -200,6 +201,7 @@ export const SignIn = (props: ISignInProps) => {
                 <SignWithApple isSmall onLogin={onSocialLogin} />
               )}
               <SignWithFacebook isSmall onLogin={onSocialLogin} />
+              <SignWithGoogle isSmall onLogin={onSocialLogin} />
             </SocialContainer>
 
             <ForgotPasswordButton

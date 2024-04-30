@@ -32,7 +32,7 @@ const AppleIcon = () => (
 const SignWithApple = (
   props: Partial<PillButtonProps, SocialButtonIconsProps>,
 ) => {
-  const {isSmall = false, onLogin, } = props;
+  const {isSmall = false, onLogin } = props;
 
   const handleLogin = async () => {
     try {

@@ -10,6 +10,7 @@ import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
+import com.facebook.FacebookSdk;
 
 public class MainApplication extends Application implements ReactApplication {
 

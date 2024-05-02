@@ -14,6 +14,8 @@
 		72E790AC854CE7C33471CFF3 /* libPods-kanvas_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0BA3B0A73109E378AFBEC6 /* libPods-kanvas_app.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8B09BF19B3CE2D36CF1448AC /* libPods-kanvas_app-kanvas_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4328A6AC4FB81339FBE4DCD /* libPods-kanvas_app-kanvas_appTests.a */; };
+		F6F6F8532BE13F7000021CB1 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = F6F6F8522BE13F7000021CB1 /* Fonts */; };
+		F6F6F8562BE1480F00021CB1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6F8552BE1480F00021CB1 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		9D0CC2243CBB22B9D0B0C6B3 /* Pods-kanvas_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.release.xcconfig"; sourceTree = "<group>"; };
 		D4328A6AC4FB81339FBE4DCD /* libPods-kanvas_app-kanvas_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app-kanvas_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F6F6F8522BE13F7000021CB1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		F6F6F8542BE1480E00021CB1 /* kanvas_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kanvas_app-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6F6F8552BE1480F00021CB1 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F6F6F8572BE177EE00021CB1 /* kanvas_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = kanvas_app.entitlements; path = kanvas_app/kanvas_app.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* kanvas_app */ = {
 			isa = PBXGroup;
 			children = (
+				F6F6F8572BE177EE00021CB1 /* kanvas_app.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -116,12 +123,15 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F6F6F8552BE1480F00021CB1 /* File.swift */,
+				F6F6F8522BE13F7000021CB1 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* kanvas_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* kanvas_appTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				F6F6F8542BE1480E00021CB1 /* kanvas_app-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -207,7 +217,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -242,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F6F8532BE13F7000021CB1 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -413,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				F6F6F8562BE1480F00021CB1 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33834A4FF8A5DDDA469D5D28 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -459,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C0E6FF163A5E243C2F8B1F4 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = kanvas_appTests/Info.plist;
@@ -483,13 +497,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51EF70C7534D67A3E6E938A7 /* Pods-kanvas_app.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = kanvas_app/kanvas_app.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UBUKR2PLZ;
 				ENABLE_BITCODE = NO;
+				FACEBOOK_APP_ID = 1590037204877670;
 				INFOPLIST_FILE = kanvas_app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kanvas App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -507,6 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mctekk.kanvas_dev;
 				PRODUCT_NAME = "Kanvas App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "kanvas_app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -519,10 +536,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = kanvas_app/kanvas_app.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7UBUKR2PLZ;
+				FACEBOOK_APP_ID = 1590037204877670;
 				INFOPLIST_FILE = kanvas_app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kanvas App";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -540,6 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mctekk.kanvas;
 				PRODUCT_NAME = "Kanvas App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "kanvas_app-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

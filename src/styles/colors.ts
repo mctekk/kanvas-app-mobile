@@ -7,3 +7,5 @@ export const WHITE = '#FFFFFF';
 export const BORDER_COLOR = '#D1D5DB';
 export const SOFT_BLUE = '#1b75bb';
 export const ERROR_RED = 'red';
+export const BUTTON_GAP_COLOR = '#1D1D1D1A';
+export const FACEBOOK = '#4267B2';

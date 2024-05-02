@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">kanvas_app</string>
+    <string name="app_name">Kanvas App</string>
+    <string name="facebook_app_id">1590037204877670</string>
+    <string name="facebook_client_token">05e7ad5671e0dc7396e8461caca0a09a</string>
 </resources>

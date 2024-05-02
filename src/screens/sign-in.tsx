@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 // Modules
 import React, { useContext, useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -30,6 +30,9 @@ import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 import { AuthContext } from 'components/context/auth-context';
 import LoadingModal from 'components/molecules/modals/loading-modal';
 import { TextTransform, translate } from 'components/atoms/localized-label';
+import SignWithApple from 'components/molecules/sign-with-apple-button';
+import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
+import SignWithGoogle from 'components/molecules/sign-with-google-button';
 
 // Interfaces
 interface ISignInProps {
@@ -72,6 +75,13 @@ const SignUpText = styled(Text)`
   color: ${Colors.SOFT_BLACK};
 `;
 
+const SocialContainer = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
 const initialValues = {
   email: '',
   password: '',
@@ -79,7 +89,9 @@ const initialValues = {
 
 const validationSchema = yup.object().shape({
   email: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
-  password: yup.string().required(translate('fieldRequired', TextTransform.NONE)),
+  password: yup
+    .string()
+    .required(translate('fieldRequired', TextTransform.NONE)),
 });
 
 export const SignIn = (props: ISignInProps) => {
@@ -125,7 +137,14 @@ export const SignIn = (props: ISignInProps) => {
   };
 
   const onLoginError = () => {
-    Alert.alert(translate('error', TextTransform.CAPITALIZE), translate('errorMsg', TextTransform.CAPITALIZE));
+    Alert.alert(
+      translate('error', TextTransform.CAPITALIZE),
+      translate('errorMsg', TextTransform.CAPITALIZE),
+    );
+  };
+
+  const onSocialLogin = (provider: string, data: any) => {
+    console.log('Social Login:', provider, data);
   };
 
   return (
@@ -140,7 +159,10 @@ export const SignIn = (props: ISignInProps) => {
             <Content>
               <TextInput
                 labelText={translate('email', TextTransform.CAPITALIZE)}
-                placeholderText={translate('placeholderMail', TextTransform.CAPITALIZE)}
+                placeholderText={translate(
+                  'placeholderMail',
+                  TextTransform.CAPITALIZE,
+                )}
                 onChangeText={props.handleChange('email')}
                 error={props.errors.email}
                 inputProps={{
@@ -152,7 +174,10 @@ export const SignIn = (props: ISignInProps) => {
 
               <TextInput
                 labelText={translate('password', TextTransform.CAPITALIZE)}
-                placeholderText={translate('placeholderPassword', TextTransform.CAPITALIZE)}
+                placeholderText={translate(
+                  'placeholderPassword',
+                  TextTransform.CAPITALIZE,
+                )}
                 style={{ marginTop: 20 }}
                 onChangeText={props.handleChange('password')}
                 secureTextEntry={true}
@@ -163,12 +188,21 @@ export const SignIn = (props: ISignInProps) => {
                 }}
               />
             </Content>
+
             <Button
               title={translate('signIn', TextTransform.CAPITALIZE)}
               onPress={props.handleSubmit}
               disabled={isLoading}
               style={{ marginTop: 20 }}
             />
+
+            <SocialContainer>
+              {Platform.OS === 'ios' && (
+                <SignWithApple isSmall onLogin={onSocialLogin} />
+              )}
+              <SignWithFacebook isSmall onLogin={onSocialLogin} />
+              <SignWithGoogle isSmall onLogin={onSocialLogin} />
+            </SocialContainer>
 
             <ForgotPasswordButton
               title={translate('forgotPassword', TextTransform.CAPITALIZE)}
@@ -182,11 +216,17 @@ export const SignIn = (props: ISignInProps) => {
           </AuthContainer>
         )}
       </Formik>
+
       <SignUpButton onPress={() => navigation.navigate('SignUp')}>
-        <SignUpText>{translate('signUpNow', TextTransform.CAPITALIZE)}</SignUpText>
+        <SignUpText>
+          {translate('signUpNow', TextTransform.CAPITALIZE)}
+        </SignUpText>
       </SignUpButton>
 
-      <LoadingModal visible={isLoading} title={translate('signingIn', TextTransform.CAPITALIZE)} />
+      <LoadingModal
+        visible={isLoading}
+        title={translate('signingIn', TextTransform.CAPITALIZE)}
+      />
     </>
   );
 };

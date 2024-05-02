@@ -4,19 +4,20 @@ import styled from 'styled-components/native';
 
 // Styles
 import { Typography, Colors } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
-import Text, { getFontFamily } from 'atoms/text';
+import Text from 'atoms/text';
 
 const TextInput = styled.TextInput`
   border-width: 1px;
   height: 36px;
   border-width: 1px;
-  border-color: ${Colors.BORDER_COLOR};
+  border-color: ${DEFAULT_THEME.boderColor};
   border-radius: 10px;
   padding-horizontal: 10px;
   font-size: ${(props) => (props.fontSize ? props.fontSize : Typography.FONT_SIZE_14)}px;
-  color: ${(props) => (props.textColor ? props.textColor : Colors.SOFT_BLACK)};
+  color: ${(props) => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
 `;
 
 const TextArea = styled.TextInput`
@@ -25,7 +26,7 @@ const TextArea = styled.TextInput`
   flex: 1px;
   min-height: 120px;
   font-size: ${(props) => (props.fontSize ? props.fontSize : Typography.FONT_SIZE_14)}px;
-  color: ${(props) => (props.textColor ? props.textColor : Colors.SOFT_BLACK)};
+  color: ${(props) => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
 `;
 
 const StyledText = styled(Text)`
@@ -76,10 +77,10 @@ const LineTextInput = ({
           onChangeText={(text: any) => onChangeText(text)}
           value={inputValue}
           placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor || Colors.PLACEHOLDER_TEXT}
+          placeholderTextColor={placeholderTextColor || DEFAULT_THEME.placeHolderText}
         />
         {props?.maxLength && (
-          <StyledText color={Colors.PLACEHOLDER_TEXT} size={13}>
+          <StyledText color={DEFAULT_THEME.placeHolderText} size={13}>
             {`${inputValue.length}/${props.maxLength}`}
           </StyledText>
         )}
@@ -95,7 +96,7 @@ const LineTextInput = ({
       onChangeText={(text: any) => onChangeText(text)}
       value={inputValue}
       placeholder={placeholder}
-      placeholderTextColor={placeholderTextColor || Colors.PLACEHOLDER_TEXT}
+      placeholderTextColor={placeholderTextColor || DEFAULT_THEME.placeHolderText}
     />
   );
 };

@@ -7,6 +7,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Molecules
 import Header from 'components/molecules/header';
@@ -17,6 +18,7 @@ import { Colors } from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
 import { client } from 'services/api';
@@ -26,8 +28,9 @@ import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 
 // Context
 import { AuthContext } from 'components/context/auth-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { TextTransform, translate } from 'components/atoms/localized-label';
+
+// Styles
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Interfaces
 interface ISignUpProps {
@@ -38,7 +41,7 @@ const HEADER_HEIGHT = 130;
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`

@@ -1,7 +1,7 @@
 // Modules
 import React from 'react';
+import { Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Colors, Typography } from 'styles';
 import styled from 'styled-components/native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
@@ -9,7 +9,10 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Text from 'atoms/text';
 import BackButton from 'components/atoms/back-button';
 import CloseButton from 'components/atoms/close-button';
-import { Platform } from 'react-native';
+
+// Styles
+import { Colors, Typography } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 export interface IProps {
   title: string;
@@ -28,7 +31,7 @@ export interface IProps {
 
 const SCREEN_MARGIN = 15;
 const HEADER_HEIGHT = Platform.OS === 'ios' ? 130 : 90;
-const HEADER_PADDING_TOP = Platform.OS === 'ios' ? 30 : 1
+const HEADER_PADDING_TOP = Platform.OS === 'ios' ? 30 : 1;
 
 const Container = styled.View`
   width: 100%;
@@ -39,7 +42,7 @@ const Container = styled.View`
   align-items: center;
   padding-horizontal: ${SCREEN_MARGIN}px;
   padding-bottom: ${SCREEN_MARGIN}px;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
 `;
 
 // @ts-ignore

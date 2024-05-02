@@ -9,6 +9,7 @@ import { Colors, Typography } from 'styles';
 // Atoms
 import Text from 'atoms/text';
 import { isIphoneX } from 'utils/iphone-helpers';
+import { DEFAULT_THEME } from 'styles/theme';
 
 export interface PillButtonProps extends TouchableOpacityProps {
   title: string;
@@ -27,7 +28,7 @@ const Pill = styled.TouchableOpacity`
   height: ${isIphoneX() ? 50 : 45}px;
   border-radius: 30px;
   flex-direction: row;
-  background-color: ${(props: PillButtonProps) => props.backgroundColor ?? Colors.BLACK};
+  background-color: ${(props: PillButtonProps) => props.backgroundColor ?? DEFAULT_THEME.black};
   margin-bottom: 10px;
   paddingHorizontal: 20px;
   border-width: 1.5px;
@@ -48,7 +49,7 @@ const IconContainer = styled.View`
 `;
 
 const PillText = styled(Text)`
-  color: ${(props: PillButtonProps) => props.color ?? Colors.WHITE};
+  color: ${(props: PillButtonProps) => props.color ?? DEFAULT_THEME.white};
   font-size: ${Typography.FONT_SIZE_16}px;
   line-height: ${Typography.FONT_SIZE_17}px;
   font-weight: ${Typography.FONT_WEIGHT_MEDIUM};
@@ -58,7 +59,7 @@ const PillButton = (props: PillButtonProps) => {
   const {
     title,
     icon,
-    textColor = Colors.WHITE,
+    textColor = DEFAULT_THEME.white,
     backgroundColor = Colors.BLACK,
     iconDivider = false,
     textProps,
@@ -81,7 +82,7 @@ const PillButton = (props: PillButtonProps) => {
         </PillText>
       )}
 
-      {isLoading && <ActivityIndicator size="small" color={Colors.WHITE} />}
+      {isLoading && <ActivityIndicator size="small" color={DEFAULT_THEME.white} />}
     </Pill>
   );
 };

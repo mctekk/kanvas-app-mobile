@@ -8,6 +8,7 @@ import Text from './text';
 // Styles
 import { Colors, Typography } from 'styles';
 import { ActivityIndicator, StyleProp } from 'react-native';
+import { DEFAULT_THEME } from 'styles/theme';
 
 interface IButtonProps {
   style?: Object;
@@ -17,7 +18,7 @@ interface IButtonProps {
 }
 
 const ButtonContainer = styled.TouchableOpacity`
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
   justify-content: center;
   align-items: center;
   margin-top: 32px;
@@ -26,7 +27,7 @@ const ButtonContainer = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled(Text)`
-  color: ${Colors.WHITE};
+  color: ${DEFAULT_THEME.white};
   font-size: ${Typography.FONT_SIZE_16}px;
   line-height: ${Typography.FONT_SIZE_20}px;
   text-align: center;

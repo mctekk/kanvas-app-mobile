@@ -1,21 +1,30 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-hooks/exhaustive-deps */
+
 // Modules
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import MenuIcon from 'assets/icons/menu-icon';
-import Button from 'components/atoms/button';
-import { TextTransform, translate } from 'components/atoms/localized-label';
-import {AuthContext} from 'components/context/auth-context';
-import {UserContext} from 'components/context/user-context';
-import Header from 'components/molecules/header';
-import {SettingsItems} from 'components/molecules/settings-items';
 import React, {useCallback, useContext, useEffect} from 'react';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-import {client} from 'services/api';
 import styled from 'styled-components';
+
+// Icons
+import MenuIcon from 'assets/icons/menu-icon';
+
+// Atoms
+import Button from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
+
+// Context
+import {AuthContext} from 'components/context/auth-context';
+import {UserContext} from 'components/context/user-context';
+
+// Molecules
+import Header from 'components/molecules/header';
+import {SettingsItems} from 'components/molecules/settings-items';
+
+// Styles
 import {Colors, Typography} from 'styles';
-import {AUTH_TOKEN, REFRESH_TOKEN, USER_DATA} from 'utils/constants';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Interfaces
 interface ISettingsProps {
@@ -24,26 +33,18 @@ interface ISettingsProps {
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
 `;
 
 const Content = styled.SafeAreaView`
   flex: 1px;
   margin: 10px;
-`;
-
-const Title = styled.Text`
-  font-size: ${Typography.FONT_SIZE_24}px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
 `;
 
 const IconContainer = styled.TouchableOpacity`
@@ -60,7 +61,7 @@ const LogoutButton = styled(Button)`
   width: 50%;
   align-self: center;
   border-radius: 10px;
-  background-color: ${Colors.ERROR_RED};
+  background-color: ${DEFAULT_THEME.error};
 `;
 
 const data = [

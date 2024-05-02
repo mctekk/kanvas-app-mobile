@@ -11,25 +11,23 @@ import { Alert } from 'react-native';
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
+import LoadingModal from 'components/molecules/modals/loading-modal';
 
 // Styles
 import { Colors } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
 import { client } from 'services/api';
 
-// Utils
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
-
 // Context
 import { AuthContext } from 'components/context/auth-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserContext } from 'components/context/user-context';
-import LoadingModal from 'components/molecules/modals/loading-modal';
-import { TextTransform, translate } from 'components/atoms/localized-label';
+
 
 // Interfaces
 interface IChangePasswordProps {
@@ -40,14 +38,14 @@ const HEADER_HEIGHT = 130;
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`
   height: ${HEADER_HEIGHT}px;
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
   padding-top: 30px;
 `;
 

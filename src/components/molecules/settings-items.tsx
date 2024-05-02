@@ -1,9 +1,10 @@
 // Modules
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Styles
-import {Colors, Typography} from 'styles';
+import { Colors, Typography } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
 import Text from 'components/atoms/text';
@@ -12,7 +13,7 @@ import Text from 'components/atoms/text';
 import BackArrow from 'assets/icons/back-arrow';
 
 const Container = styled.TouchableOpacity`
-  background-color: ${Colors.WHITE};
+  background-color: ${DEFAULT_THEME.background};
   border-width: 1px;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +27,7 @@ const Container = styled.TouchableOpacity`
 const Title = styled(Text)`
   font-size: ${Typography.FONT_SIZE_16}px;
   line-height: ${Typography.FONT_SIZE_18}px;
-  color: ${Colors.SOFT_BLACK};
+  color: ${DEFAULT_THEME.text};
   font-weight: 600;
 `;
 
@@ -46,7 +47,7 @@ interface ISettingsItemsProps {
 
 export const SettingsItems = (props: ISettingsItemsProps) => {
   // Props
-  const {navigation, name, route} = props;
+  const { navigation, name, route } = props;
 
   return (
     <Container {...props}>
@@ -54,9 +55,9 @@ export const SettingsItems = (props: ISettingsItemsProps) => {
 
       <IconContainer
         style={{
-          transform: [{rotate: '180deg'}],
+          transform: [{ rotate: '180deg' }],
         }}>
-        <BackArrow color={Colors.PRIMARY} />
+        <BackArrow color={DEFAULT_THEME.primary} />
       </IconContainer>
     </Container>
   );

@@ -17,18 +17,23 @@ import { Colors, Typography } from 'styles';
 // Context
 import { AuthContext } from 'components/context/auth-context';
 import { UserContext } from 'components/context/user-context';
+
+// Atoms
 import Button from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
+// Styles
+import { DEFAULT_THEME } from 'styles/theme';
+
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
 `;
 
 const Content = styled.SafeAreaView`
@@ -39,7 +44,7 @@ const Content = styled.SafeAreaView`
 const Title = styled.Text`
   font-size: ${Typography.FONT_SIZE_24}px;
   font-weight: bold;
-  color: #333;
+  color: ${DEFAULT_THEME.text};
   text-align: center;
   margin-bottom: 20px;
 `;
@@ -51,7 +56,7 @@ const UserInfoContainer = styled.View`
 const InfoText = styled.Text`
   font-size: ${Typography.FONT_SIZE_16}px;
   line-height: ${Typography.FONT_SIZE_18}px;
-  color: ${Colors.SOFT_BLACK};
+  color: ${DEFAULT_THEME.text};
   margin-vertical: 2px;
 `;
 

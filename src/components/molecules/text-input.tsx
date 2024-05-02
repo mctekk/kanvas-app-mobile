@@ -5,6 +5,7 @@ import {View} from 'react-native';
 
 // Styles
 import {Typography, Colors} from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
 import Text from 'atoms/text';
@@ -42,7 +43,7 @@ const Container = styled.View`
 
 const Title = styled(Text)`
   color: ${(props: IProps) =>
-    props.labelTextColor ? props.labelTextColor : Colors.SOFT_BLACK};
+    props.labelTextColor ? props.labelTextColor : DEFAULT_THEME.text};
   font-size: ${(props: IProps) =>
     props.labelFontSize ? props.labelFontSize : Typography.FONT_SIZE_16}px;
   margin-bottom: 10px;
@@ -66,7 +67,7 @@ const TextInput = (props: IProps) => {
     onChangeText,
     textColor,
     fontSize,
-    placeholderTextColor = Colors.PLACEHOLDER_LIGHT,
+    placeholderTextColor = DEFAULT_THEME.placeHolderText,
     keyboardType,
     onPressKeyboardSubmit,
     returnKeyType,

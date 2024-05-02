@@ -1,6 +1,7 @@
 // Modules
 import React, { useEffect, useReducer } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Scenes
 import HomeStack from './stacks/home-stack';
@@ -21,7 +22,8 @@ import {
   SIGN_UP,
   UPDATE_TOKEN,
 } from 'utils/constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Services
 import { client } from 'services/api';
 
 // Constants

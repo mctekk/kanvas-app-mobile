@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import {Alert, StyleSheet} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
+import LoadingModal from 'components/molecules/modals/loading-modal';
 
 // Styles
 import {Colors, Typography} from 'styles';
@@ -15,10 +17,13 @@ import {Colors, Typography} from 'styles';
 // Atoms
 import Text from 'components/atoms/text';
 import Button from 'components/atoms/button';
-import {client} from 'services/api';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import LoadingModal from 'components/molecules/modals/loading-modal';
 import {TextTransform, translate} from 'components/atoms/localized-label';
+
+// Services
+import {client} from 'services/api';
+
+// Styles
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Interfaces
 interface IForgotPasswordProps {
@@ -27,13 +32,13 @@ interface IForgotPasswordProps {
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
 `;
 
 const Content = styled(KeyboardAwareScrollView)`
@@ -44,7 +49,7 @@ const Title = styled(Text)`
   font-size: ${Typography.FONT_SIZE_22}px;
   line-height: ${Typography.FONT_SIZE_24}px;
   font-weight: bold;
-  color: #333;
+  color: ${DEFAULT_THEME.text};
   text-align: center;
   margin-bottom: 5px;
 `;
@@ -52,7 +57,7 @@ const Title = styled(Text)`
 const Subtitle = styled(Text)`
   font-size: ${Typography.FONT_SIZE_14}px;
   line-height: ${Typography.FONT_SIZE_24}px;
-  color: #333;
+  color: ${DEFAULT_THEME.text};
   text-align: center;
   margin-bottom: 15px;
 `;

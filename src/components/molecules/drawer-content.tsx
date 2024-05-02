@@ -6,6 +6,7 @@ import {
 import styled from 'styled-components';
 import KanvasLogoColor from 'assets/icons/kanvas-logo-color';
 import { Colors } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 interface IDrawerContentProps {
   navigation: any;
@@ -14,7 +15,7 @@ interface IDrawerContentProps {
 const Container = styled.View`
   width: 100%;
   height: 250px;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
   margin-top: -80px;
   padding-top: 40px;
   justify-content: center;

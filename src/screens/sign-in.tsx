@@ -33,6 +33,7 @@ import { TextTransform, translate } from 'components/atoms/localized-label';
 import SignWithApple from 'components/molecules/sign-with-apple-button';
 import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
 import SignWithGoogle from 'components/molecules/sign-with-google-button';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Interfaces
 interface ISignInProps {
@@ -43,7 +44,7 @@ const Title = styled(Text)`
   font-size: ${Typography.FONT_SIZE_24}px;
   line-height: ${Typography.FONT_SIZE_32}px;
   font-weight: bold;
-  color: #333;
+  color: ${DEFAULT_THEME.text};
 `;
 
 const Content = styled.View`
@@ -72,7 +73,7 @@ const SignUpButton = styled.TouchableOpacity`
 const SignUpText = styled(Text)`
   font-size: ${Typography.FONT_SIZE_16}px;
   line-height: ${Typography.FONT_SIZE_22}px;
-  color: ${Colors.SOFT_BLACK};
+  color: ${DEFAULT_THEME.text};
 `;
 
 const SocialContainer = styled.View`

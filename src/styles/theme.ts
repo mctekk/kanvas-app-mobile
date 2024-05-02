@@ -2,23 +2,23 @@ import { Colors } from "styles";
 
 interface ColorTheme {
   primary: string;
-  onPrimary: string;
-  text: string;
-  onSurface: string;
   background: string;
+  transparent: string;
+  text: string;
+  boderColor: string;
+  error: string;
+  placeHolderText: string;
+  black: string;
+  white: string;
 }
-export const COLOR: ColorTheme = {
+export const DEFAULT_THEME: ColorTheme = {
   primary: Colors.PRIMARY,
   background: Colors.WHITE,
   text: Colors.SOFT_BLACK,
-  surface: '#fff',
-  onSurface: '#000',
-};
-interface SpacingTheme {
-  base: number;
-  double: number;
-}
-export const SPACING: SpacingTheme = {
-  base: 8,
-  double: 16,
+  boderColor: Colors.BORDER_COLOR,
+  error: Colors.ERROR_RED,
+  transparent: Colors.TRANSPARENT,
+  placeHolderText: Colors.PLACEHOLDER_TEXT,
+  black: Colors.BLACK,
+  white: Colors.WHITE,
 };

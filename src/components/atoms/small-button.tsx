@@ -6,6 +6,7 @@ import styled from 'styled-components/native';
 
 // Styles
 import { Colors } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 export interface PillButtonProps extends TouchableOpacityProps {
   title: string;
@@ -44,7 +45,6 @@ const SmallButton = (props: PillButtonProps) => {
   const {
     title,
     icon,
-    textColor = Colors.WHITE,
     backgroundColor = Colors.BLACK,
     iconDivider = false,
     textProps,
@@ -61,7 +61,7 @@ const SmallButton = (props: PillButtonProps) => {
         </IconContainer>
       )}
 
-      {isLoading && <ActivityIndicator size="small" color={Colors.WHITE} />}
+      {isLoading && <ActivityIndicator size="small" color={DEFAULT_THEME.white} />}
     </Container>
   );
 };

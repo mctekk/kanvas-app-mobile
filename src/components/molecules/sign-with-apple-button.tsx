@@ -8,7 +8,7 @@ import {translate, TextTransform} from 'atoms/localized-label';
 import SmallButton from 'atoms/small-button';
 
 // Styles
-import {Colors} from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Molecules
 import PillButton, {PillButtonProps} from 'molecules/pill-button';
@@ -25,7 +25,7 @@ const AppleIcon = () => (
   <Foundation
     name="social-apple"
     size={24}
-    color={isIphoneX() ? Colors.WHITE : Colors.BLACK}
+    color={isIphoneX() ? DEFAULT_THEME.white : DEFAULT_THEME.black}
   />
 );
 

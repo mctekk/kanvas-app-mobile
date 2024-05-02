@@ -9,3 +9,5 @@ export const SOFT_BLUE = '#1b75bb';
 export const ERROR_RED = 'red';
 export const BUTTON_GAP_COLOR = '#1D1D1D1A';
 export const FACEBOOK = '#4267B2';
+export const TRANSPARENT = 'rgba(52, 52, 52, 0)';
+export const PLACEHOLDER_TEXT = 'rgba(235, 235, 245, 0.6)';

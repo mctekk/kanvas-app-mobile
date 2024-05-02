@@ -11,25 +11,24 @@ import { Alert } from 'react-native';
 // Molecules
 import Header from 'components/molecules/header';
 import TextInput from 'components/molecules/text-input';
+import LoadingModal from 'components/molecules/modals/loading-modal';
 
 // Styles
 import { Colors } from 'styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
 import { client } from 'services/api';
 
-// Utils
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
-
 // Context
 import { AuthContext } from 'components/context/auth-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserContext } from 'components/context/user-context';
-import LoadingModal from 'components/molecules/modals/loading-modal';
-import { TextTransform, translate } from 'components/atoms/localized-label';
+
+// Styles
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Interfaces
 interface IEditProfileProps {
@@ -38,13 +37,13 @@ interface IEditProfileProps {
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${DEFAULT_THEME.background};
 `;
 
 const ScreenHeader = styled(Header)`
   justify-content: space-between;
   align-items: center;
-  background-color: ${Colors.PRIMARY};
+  background-color: ${DEFAULT_THEME.primary};
 `;
 
 const Content = styled.View`

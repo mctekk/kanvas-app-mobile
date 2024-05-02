@@ -1,6 +1,7 @@
 // Modules
 import React from 'react';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import Config from 'react-native-config';
 
 // Molecules
 import PillButton, { PillButtonProps } from 'molecules/pill-button';
@@ -11,7 +12,6 @@ import { translate, TextTransform } from 'atoms/localized-label';
 
 // Assets
 import GoogleIcon from 'assets/icons/google-icon';
-import Config from 'react-native-config';
 
 const GIcon = () => <GoogleIcon width={21} height={20} />;
 

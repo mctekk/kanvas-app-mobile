@@ -29,6 +29,7 @@
     "babel-plugin-transform-remove-console": "^6.9.4",
     "formik": "^2.4.5",
     "i18n-js": "^4.4.3",
+    "moment": "^2.30.1",
     "react": "18.2.0",
     "react-native": "0.71.8",
     "react-native-config": "^1.5.1",

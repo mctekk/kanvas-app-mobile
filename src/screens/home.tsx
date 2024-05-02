@@ -24,6 +24,7 @@ import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Styles
 import { DEFAULT_THEME } from 'styles/theme';
+import BellV2 from 'assets/icons/bell';
 
 const Container = styled.View`
   flex: 1;
@@ -80,12 +81,23 @@ export const Home = (props: IHomeProps) => {
   const { userData } = useContext(UserContext);
 
   useEffect(() => {
+    // TESTING PURPOSES
     console.log('User Data:', userData);
   }, []);
+
+  const openNotifications = () => {
+    navigation.navigate('Notifications');
+  };
 
   const LeftButtonComponent = () => (
     <IconContainer onPress={() => navigation.openDrawer()}>
       <MenuIcon />
+    </IconContainer>
+  );
+
+  const RightComponent = () => (
+    <IconContainer onPress={openNotifications}>
+      <BellV2 />
     </IconContainer>
   );
 
@@ -94,6 +106,7 @@ export const Home = (props: IHomeProps) => {
       <ScreenHeader
         title={translate('home', TextTransform.CAPITALIZE)}
         leftButtonComponent={<LeftButtonComponent />}
+        rightButtonComponent={<RightComponent />}
       />
 
       <Content>

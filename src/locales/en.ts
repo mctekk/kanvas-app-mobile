@@ -42,4 +42,5 @@ export default {
   confirmNewPasswordPlaceHolder: 'Confirm your new password',
   savingChanges: 'Saving changes...',
   saveChanges: 'Save changes',
+  notification: 'Notification',
 };

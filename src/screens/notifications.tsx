@@ -24,7 +24,7 @@ import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Styles
 import { DEFAULT_THEME } from 'styles/theme';
-import { client } from 'services/api';
+import { client } from 'core/kanvas_client';
 import { NotificationsItem } from 'components/molecules/notifications-item';
 
 const Container = styled.View`

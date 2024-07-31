@@ -37,7 +37,8 @@ const SignWithGoogle = (props: Partial<PillButtonProps>) => {
 
       if (Object.keys(userInfo?.user).length !== 0) {
         // HERE: Implement the logic to handle the user data
-        onLogin?.('google', userInfo?.user);
+        console.log('Google User Info:', userInfo);
+        onLogin?.('google', userInfo?.idToken);
       }
 
     } catch (error) {

@@ -11,29 +11,31 @@ import Config from 'react-native-config';
 
 // Molcules
 import TextInput from 'components/molecules/text-input';
+import LoadingModal from 'components/molecules/modals/loading-modal';
+import SignWithApple from 'components/molecules/sign-with-apple-button';
+import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
+import SignWithGoogle from 'components/molecules/sign-with-google-button';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
 import Text from 'components/atoms/text';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Organisms
 import { AuthContainer } from 'components/organisms/auth-container';
 
 // Styles
 import { Colors, Typography } from 'styles';
+import { DEFAULT_THEME } from 'styles/theme';
 
 // Services
-import { client } from 'services/api';
+import { client } from 'core/kanvas_client';
+import kanvasService from 'core/services/kanvas-service';
 
 // Constants
 import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
 import { AuthContext } from 'components/context/auth-context';
-import LoadingModal from 'components/molecules/modals/loading-modal';
-import { TextTransform, translate } from 'components/atoms/localized-label';
-import SignWithApple from 'components/molecules/sign-with-apple-button';
-import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
-import SignWithGoogle from 'components/molecules/sign-with-google-button';
-import { DEFAULT_THEME } from 'styles/theme';
+
 
 // Interfaces
 interface ISignInProps {
@@ -111,7 +113,7 @@ export const SignIn = (props: ISignInProps) => {
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
-      const response = await client.users.getUserData();
+      const response = await kanvasService.getUserData();
       console.log('Get User Data Response:', response);
       signIn({ token, refresh_token, user: response });
       setIsLoading(false);
@@ -144,8 +146,25 @@ export const SignIn = (props: ISignInProps) => {
     );
   };
 
-  const onSocialLogin = (provider: string, data: any) => {
-    console.log('Social Login:', provider, data);
+  const onSocialLogin = async (provider: string, authToken: any) => {
+    setIsLoading(true);
+
+    console.log('Provider:', provider);
+    console.log('AuthToken:', authToken);
+
+    try {
+      const response = await client.auth.socialLogin({
+        provider,
+        token: authToken,
+      });
+      const { token, refresh_token } = response.socialLogin;
+      await AsyncStorage.setItem(AUTH_TOKEN, token);
+      getUserData(token, refresh_token);
+    } catch (error) {
+      console.log('Social Login Error:', error);
+      setIsLoading(false);
+      throw new Error(`Social Login Error: ${error}`);
+    }
   };
 
   return (

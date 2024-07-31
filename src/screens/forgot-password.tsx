@@ -20,7 +20,7 @@ import Button from 'components/atoms/button';
 import {TextTransform, translate} from 'components/atoms/localized-label';
 
 // Services
-import {client} from 'services/api';
+import { client } from 'core/kanvas_client';
 
 // Styles
 import { DEFAULT_THEME } from 'styles/theme';

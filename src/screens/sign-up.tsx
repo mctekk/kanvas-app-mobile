@@ -21,7 +21,7 @@ import CustomButton from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
-import { client } from 'services/api';
+import { client } from 'core/kanvas_client';
 
 // Utils
 import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
@@ -31,6 +31,7 @@ import { AuthContext } from 'components/context/auth-context';
 
 // Styles
 import { DEFAULT_THEME } from 'styles/theme';
+import kanvasService from 'core/services/kanvas-service';
 
 // Interfaces
 interface ISignUpProps {
@@ -101,7 +102,7 @@ export const SignUp = (props: ISignUpProps) => {
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
-      const response = await client.users.getUserData();
+      const response = await kanvasService.getUserData();
       signUp({ token, refresh_token, user: response });
       setIsLoading(false);
     } catch (error) {

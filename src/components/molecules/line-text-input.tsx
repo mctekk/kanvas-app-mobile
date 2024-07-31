@@ -1,6 +1,7 @@
 // Modules
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
+import is from 'styled-is';
 
 // Styles
 import { Typography, Colors } from 'styles';
@@ -8,16 +9,27 @@ import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
 import Text from 'atoms/text';
+import IconButton from 'components/atoms/icon-button';
+
+const Container = styled.View`
+  border-width: 1px;
+  height: 42px;
+  border-width: 1px;
+  border-color: ${props => props.isFocused ? DEFAULT_THEME.inputFocus : DEFAULT_THEME.boderColor};
+  border-radius: 4px;
+  padding-horizontal: 10px;
+  background-color: ${DEFAULT_THEME.inputBg};
+  justify-content: center;
+  flex-direction: row;
+  ${is('error')`
+    border-color: ${DEFAULT_THEME.error};
+  `}
+`;
 
 const TextInput = styled.TextInput`
-  border-width: 1px;
-  height: 36px;
-  border-width: 1px;
-  border-color: ${DEFAULT_THEME.boderColor};
-  border-radius: 10px;
-  padding-horizontal: 10px;
-  font-size: ${(props) => (props.fontSize ? props.fontSize : Typography.FONT_SIZE_14)}px;
-  color: ${(props) => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
+  flex: 1px;
+  font-size: ${props => props.fontSize ? props.fontSize : Typography.FONT_SIZE_14}px;
+  color: ${props => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
 `;
 
 const TextArea = styled.TextInput`
@@ -25,9 +37,19 @@ const TextArea = styled.TextInput`
   padding-left: 16px;
   flex: 1px;
   min-height: 120px;
-  font-size: ${(props) => (props.fontSize ? props.fontSize : Typography.FONT_SIZE_14)}px;
-  color: ${(props) => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
+  font-size: ${props =>
+    props.fontSize ? props.fontSize : Typography.FONT_SIZE_14}px;
+  color: ${props => (props.textColor ? props.textColor : DEFAULT_THEME.text)};
 `;
+
+const IconContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  width: 42px;
+`;
+
+const InputIcon = styled(IconButton)``;
 
 const StyledText = styled(Text)`
   flex: 1;
@@ -39,7 +61,7 @@ const StyledText = styled(Text)`
 `;
 
 const TextAreaContainer = styled.View`
-  flex: 1;
+  flex: 1px;
 `;
 
 interface IProps {
@@ -48,10 +70,21 @@ interface IProps {
   placeholder?: string;
   placeholderTextColor?: string;
   style?: Object;
+  containerStyle?: object;
   fontSize?: Number;
   textColor?: string;
   textArea?: boolean;
   maxLength?: number;
+  hasIcon?: boolean;
+  iconSize?: number;
+  iconColor?: string;
+  backgroundColor?: string;
+  secureTextEntry?: boolean;
+  iconType?: string;
+  iconName?: string;
+  isFocused?: boolean;
+  error?: boolean | string;
+  customRef?: any;
 }
 
 const LineTextInput = ({
@@ -63,13 +96,32 @@ const LineTextInput = ({
   textColor,
   style,
   textArea,
+  iconSize = 24,
+  iconColor = DEFAULT_THEME.placeHolderText,
+  backgroundColor,
+  secureTextEntry,
+  iconType = 'Ionicons',
+  iconName = '',
+  isFocused,
+  error,
+  customRef,
+  containerStyle,
   ...props
 }: IProps) => {
+
+  const [showPassword, togglePasswordVisibility] = useState(true);
+
+  const handleIconName = () => {
+    if (secureTextEntry) {
+      return showPassword ? 'eye-off-outline' : 'eye-outline';
+    }
+    return iconName;
+  };
+
   if (textArea) {
     return (
       <TextAreaContainer>
         <TextArea
-          {...props}
           fontSize={fontSize}
           textColor={textColor}
           style={style}
@@ -77,7 +129,10 @@ const LineTextInput = ({
           onChangeText={(text: any) => onChangeText(text)}
           value={inputValue}
           placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor || DEFAULT_THEME.placeHolderText}
+          placeholderTextColor={
+            placeholderTextColor || DEFAULT_THEME.placeHolderText
+          }
+          {...props}
         />
         {props?.maxLength && (
           <StyledText color={DEFAULT_THEME.placeHolderText} size={13}>
@@ -88,16 +143,35 @@ const LineTextInput = ({
     );
   }
   return (
-    <TextInput
-      {...props}
-      fontSize={fontSize}
-      textColor={textColor}
-      style={style}
-      onChangeText={(text: any) => onChangeText(text)}
-      value={inputValue}
-      placeholder={placeholder}
-      placeholderTextColor={placeholderTextColor || DEFAULT_THEME.placeHolderText}
-    />
+    <Container error={error} isFocused={isFocused} style={containerStyle}>
+      <TextInput
+        ref={customRef}
+        fontSize={fontSize}
+        textColor={textColor}
+        style={style}
+        onChangeText={(text: any) => onChangeText(text)}
+        value={inputValue}
+        placeholder={placeholder}
+        placeholderTextColor={
+          placeholderTextColor || DEFAULT_THEME.placeHolderText
+        }
+        secureTextEntry={secureTextEntry ? showPassword : false}
+        {...props}
+      />
+
+      {secureTextEntry && (
+        <IconContainer>
+          <InputIcon
+            iconType={iconType}
+            name={handleIconName()}
+            size={iconSize}
+            color={iconColor}
+            backgroundColor={backgroundColor}
+            onPress={() => togglePasswordVisibility(!showPassword)}
+          />
+        </IconContainer>
+      )}
+    </Container>
   );
 };
 

@@ -1,10 +1,10 @@
 // Modules
 import React from 'react';
 import styled from 'styled-components/native';
-import {View} from 'react-native';
+import is from 'styled-is';
 
 // Styles
-import {Typography, Colors} from 'styles';
+import { Typography, Colors } from 'styles';
 import { DEFAULT_THEME } from 'styles/theme';
 
 // Atoms
@@ -15,11 +15,12 @@ interface IProps {
   labelText: string;
   labelTextColor?: string;
   labelFontSize?: Number;
-  textValue: string;
+  textValue?: string;
   textColor?: string;
   fontSize?: Number;
   placeholderText?: string;
   style?: Object;
+  containerStyle?: object;
   onChangeText: (text: string) => void;
   placeholderTextColor?: string;
   keyboardType?: string;
@@ -35,6 +36,8 @@ interface IProps {
   onBlur?: () => void;
   secureTextEntry?: boolean;
   error?: boolean | string;
+  isFocused?: boolean;
+  customRef?: any;
 }
 
 const Container = styled.View`
@@ -42,12 +45,13 @@ const Container = styled.View`
 `;
 
 const Title = styled(Text)`
-  color: ${(props: IProps) =>
-    props.labelTextColor ? props.labelTextColor : DEFAULT_THEME.text};
-  font-size: ${(props: IProps) =>
-    props.labelFontSize ? props.labelFontSize : Typography.FONT_SIZE_16}px;
+  color: ${(props: IProps) => props.labelTextColor ? props.labelTextColor : DEFAULT_THEME.text};
   margin-bottom: 10px;
+  ${is('error')`
+    color: ${DEFAULT_THEME.error};
+  `}
 `;
+
 const ErrorText = styled(Text)`
   color: ${Colors.ERROR_RED};
   font-size: ${Typography.FONT_SIZE_12}px;
@@ -63,6 +67,7 @@ const TextInput = (props: IProps) => {
     labelTextColor,
     labelFontSize,
     style,
+    containerStyle,
     placeholderText,
     onChangeText,
     textColor,
@@ -81,18 +86,26 @@ const TextInput = (props: IProps) => {
     editable = true,
     secureTextEntry = false,
     error = false | '',
+    isFocused,
+    customRef,
   } = props;
 
   return (
     <Container style={style}>
-      <Title
-        style={labelStyle}
-        size={labelFontSize || Typography.FONT_SIZE_16}
-        labelTextColor={labelTextColor}>
-        {labelText}
-      </Title>
+      {labelText ? (
+        <Title
+          style={labelStyle}
+          size={labelFontSize || Typography.FONT_SIZE_14}
+          labelTextColor={labelTextColor}
+          error={error}
+        >
+          {labelText}
+        </Title>
+      ) : (<></>)}
 
       <LineTextInput
+        customRef={customRef}
+        isFocused={isFocused}
         textColor={textColor}
         fontSize={fontSize}
         onChangeText={onChangeText}
@@ -109,6 +122,8 @@ const TextInput = (props: IProps) => {
         onBlur={onBlur}
         editable={editable}
         secureTextEntry={secureTextEntry}
+        error={error}
+        containerStyle={containerStyle}
         {...inputProps}
       />
 

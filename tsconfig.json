@@ -7,7 +7,7 @@
       "atoms/*": ["./src/components/atoms/*"],
       "navigations/*": ["./src/navigations/*"],
       "screen/*": ["./src/screen/*"],
-      "services/*": ["./src/services/*"],
+      "services/*": ["src/core/*"],
       "molecules/*": ["./src/components/molecules/*"],
       "organisms/*": ["./src/components/organisms/*"],
       "context/*": ["./src/components/context/*"],

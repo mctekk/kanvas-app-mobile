@@ -23,13 +23,17 @@ import {
   UPDATE_TOKEN,
 } from 'utils/constants';
 
-// Services
-import { client } from 'services/api';
+// core
+import { client } from 'core/kanvas_client';
+import kanvasService from 'core/services/kanvas-service';
 
 // Constants
 const Stack = createStackNavigator();
 
 const MainStack = ({ navigation }) => {
+
+  const AsyncKeys = [AUTH_TOKEN, USER_DATA, REFRESH_TOKEN];
+
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -101,7 +105,6 @@ const MainStack = ({ navigation }) => {
 
       const response = await client.auth.refreshToken(refresh_token);
       const { refreshToken } = response;
-      console.log('Refresh Token Response:', response);
       await AsyncStorage.setItem(AUTH_TOKEN, refreshToken.token);
       dispatch({
         type: UPDATE_TOKEN,
@@ -109,7 +112,20 @@ const MainStack = ({ navigation }) => {
       });
     } catch (error) {
       console.log('Refresh Token Error:', error);
+      onUserLogout();
       dispatch({ type: SIGN_OUT });
+    }
+  };
+
+  const onUserUpdate = async () => {
+    try {
+      const response = await kanvasService.getUserData();
+      dispatch({ type: USER_DATA_UPDATE, user: response });
+    } catch (error) {
+      console.log('User Update Error:', error);
+      onUserLogout();
+      dispatch({ type: SIGN_OUT });
+      throw new Error(`An error occurred while updating user data, ${error}`);
     }
   };
 
@@ -117,24 +133,26 @@ const MainStack = ({ navigation }) => {
     const bootstrapAsync = async () => {
       let userToken;
       let userData;
-      let rooftopSelected;
       try {
-        onRefreshToken();
         const token = await AsyncStorage.getItem(AUTH_TOKEN);
         userToken = token;
+
+        if (userToken) {
+          onRefreshToken();
+          onUserUpdate();
+        }
 
         const user = await AsyncStorage.getItem(USER_DATA);
         const userInfo = JSON.parse(user || ''); // Provide a default value of an empty string
         userData = userInfo;
       } catch (e) {
-        // Restoring token failed
-        dispatch({ type: SIGN_OUT });
+        await AsyncStorage.multiRemove(AsyncKeys);
+        dispatch({ type: SIGN_OUT }); // Restoring token failed
       }
       dispatch({
         type: REFRESH_TOKEN,
         token: userToken,
         user: userData,
-        rooftopSelected: rooftopSelected,
       });
     };
     bootstrapAsync();
@@ -143,7 +161,8 @@ const MainStack = ({ navigation }) => {
   const onUserLogout = async () => {
     try {
       const response = await client.auth.logout();
-      await AsyncStorage.multiRemove([AUTH_TOKEN, USER_DATA, REFRESH_TOKEN]);
+      await AsyncStorage.multiRemove(AsyncKeys);
+      dispatch({ type: SIGN_OUT });
     } catch (error) {
       console.log('Logout Error:', error);
       throw new Error(`An error occurred while logging out, ${error}`);
@@ -193,6 +212,7 @@ const MainStack = ({ navigation }) => {
           userData: state.userData,
           userToken: state.userToken,
           isLoading: state.isLoading,
+          isUserLogged: !!state.userData?.id,
         }}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           {state.userToken == null ? (

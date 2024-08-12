@@ -1572,13 +1572,13 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kanvas/core@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/@kanvas/core/-/core-0.3.3.tgz"
-  integrity sha512-bIQvZ7dCmQ/ajv2QP4fxRs8DgphRfMZm2cFTpWEoni6ScUan83VPVCLrNfVmcDRLoh+WVV+70ou03ck2wy0u7w==
+"@kanvas/core@^0.5.2":
+  version "0.5.3"
+  resolved "https://registry.npmjs.org/@kanvas/core/-/core-0.5.3.tgz"
+  integrity sha512-Jlz8+PX2peidmWZz875dXtDFP28qIN2RhCz5/dE1N2stIr3zatCtUPI9fH5azIkiP2WOj/FzNay0wpvtHQIQRw==
   dependencies:
     "@apollo/client" "^3.10.8"
-    axios "^1.6.2"
+    axios "^1.7.2"
     form-data "^4.0.0"
     graphql "^16.6.0"
     typescript-transform-paths "^3.4.6"
@@ -2760,10 +2760,10 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
-axios@^1.6.2:
-  version "1.6.8"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.6.8.tgz"
-  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+axios@^1.7.2:
+  version "1.7.3"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.7.3.tgz"
+  integrity sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"

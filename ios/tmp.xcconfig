@@ -1,4 +1,4 @@
-APP_CONFIG=dev
+APP_CONFIG=prod
 KANVAS_URL=https:/$()/graphapidev.kanvas.dev/graphql
 KANVAS_KEY=7d0488b2-632e-4045-9d2d-370d9161644a
 GOOGLE_WEB_CLIENT_ID=815133161926-qr8dm7hovaa3su0j6l217cdka4otpla6.apps.googleusercontent.com

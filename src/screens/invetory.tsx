@@ -14,7 +14,7 @@ import {Colors, Typography} from 'styles';
 // Context
 import {AuthContext} from 'components/context/auth-context';
 import {UserContext} from 'components/context/user-context';
-import { client } from 'services/api';
+import { client } from 'core/kanvas_client';
 
 const Container = styled.View`
   flex: 1;

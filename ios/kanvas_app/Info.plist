@@ -20,8 +20,6 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>GIDClientID</key>
-	<string>815133161926-be4gebpe0tg5674tru8ckqiom3uurdpe.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -47,6 +45,8 @@
 	<string>${FACEBOOK_APP_ID}</string>
 	<key>FacebookDisplayName</key>
 	<string>Kanvas App</string>
+	<key>GIDClientID</key>
+	<string>815133161926-be4gebpe0tg5674tru8ckqiom3uurdpe.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

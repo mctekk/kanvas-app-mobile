@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.24"
 
-"@apollo/client@^3.7.10":
-  version "3.9.10"
-  resolved "https://registry.npmjs.org/@apollo/client/-/client-3.9.10.tgz"
-  integrity sha512-w8i/Lk1P0vvWZF0Xb00XPonn79/0rgRJ1vopBlVudVuy9QP29/NZXK0rI2xJIN6VrKuEqJZaVGJC+7k23I2sfA==
+"@apollo/client@^3.10.8":
+  version "3.11.2"
+  resolved "https://registry.npmjs.org/@apollo/client/-/client-3.11.2.tgz"
+  integrity sha512-HVcsJChOVut6gmmf5YukTG52EXg0cxq0LU7I/0yZPcfcJOPW2cpVqveaxZt+B1fL6ZKrYVdSa2nfuK0oSpv0Yw==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@wry/caches" "^1.0.0"
@@ -28,7 +28,7 @@
     hoist-non-react-statics "^3.3.2"
     optimism "^0.18.0"
     prop-types "^15.7.2"
-    rehackt "0.0.6"
+    rehackt "^0.1.0"
     response-iterator "^0.2.6"
     symbol-observable "^4.0.0"
     ts-invariant "^0.10.3"
@@ -1562,12 +1562,12 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kanvas/core@^0.0.109":
-  version "0.0.109"
-  resolved "https://registry.npmjs.org/@kanvas/core/-/core-0.0.109.tgz"
-  integrity sha512-4VAKX3LxniAHlvUkid1PNq5hftJRCvG6BzqT0hRo0tjs8zBb+TzQ9A5EOA4rg8UIkooSHfwvRcwcUFt7+yodmQ==
+"@kanvas/core@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.npmjs.org/@kanvas/core/-/core-0.3.3.tgz"
+  integrity sha512-bIQvZ7dCmQ/ajv2QP4fxRs8DgphRfMZm2cFTpWEoni6ScUan83VPVCLrNfVmcDRLoh+WVV+70ou03ck2wy0u7w==
   dependencies:
-    "@apollo/client" "^3.7.10"
+    "@apollo/client" "^3.10.8"
     axios "^1.6.2"
     form-data "^4.0.0"
     graphql "^16.6.0"
@@ -6832,10 +6832,10 @@ regjsparser@^0.9.1:
   dependencies:
     jsesc "~0.5.0"
 
-rehackt@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/rehackt/-/rehackt-0.0.6.tgz"
-  integrity sha512-l3WEzkt4ntlEc/IB3/mF6SRgNHA6zfQR7BlGOgBTOmx7IJJXojDASav+NsgXHFjHn+6RmwqsGPFgZpabWpeOdw==
+rehackt@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/rehackt/-/rehackt-0.1.0.tgz"
+  integrity sha512-7kRDOuLHB87D/JESKxQoRwv4DzbIdwkAGQ7p6QKGdVlY1IZheUnVhlk/4UZlNUVxdAXpyxikE3URsG067ybVzw==
 
 require-directory@^2.1.1:
   version "2.1.1"

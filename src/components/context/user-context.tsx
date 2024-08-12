@@ -4,6 +4,8 @@ export interface IUserContext {
   userData: any;
   userToken: string;
   isLoading: boolean;
+  isConnected: boolean;
+  isUserLogged: boolean;
 }
 
 const Context = createContext<IUserContext>({} as IUserContext);

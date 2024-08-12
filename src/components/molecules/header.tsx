@@ -15,18 +15,20 @@ import { Colors, Typography } from 'styles';
 import { DEFAULT_THEME } from 'styles/theme';
 
 export interface IProps {
-  title: string;
+  title?: string;
   customHeader?: any;
-  titleProps: any;
+  titleProps?: any;
   rightButtonComponent?: any;
   leftButtonComponent?: any;
-  rightButtonProps: any;
+  rightButtonProps?: any;
   buttonTitleProps?: any;
   style?: object;
   closeButtonType?: 'CLOSE' | 'BACK';
   onLeftButtonPress?: () => void;
   onBackDetail?: () => void;
   diableBackButton?: boolean;
+  backIconColor?: string;
+  hasBackButton?: boolean;
 }
 
 const SCREEN_MARGIN = 15;
@@ -91,6 +93,7 @@ const Header = (props: IProps) => {
     onBackDetail,
     diableBackButton = false,
     hasBackButton = true,
+    backIconColor = Colors.WHITE,
   } = props;
 
   const onBackPress = () => {
@@ -107,11 +110,16 @@ const Header = (props: IProps) => {
           {hasBackButton ? (
             <>
               {closeButtonType === 'BACK' ? (
-                <BackButton onPress={onBackPress} disabled={diableBackButton} />
+                <BackButton
+                  onPress={onBackPress}
+                  disabled={diableBackButton}
+                  backIconColor={backIconColor}
+                />
               ) : (
                 <CloseButton
                   onPress={onBackPress}
                   disabled={diableBackButton}
+                  backIconColor={backIconColor}
                 />
               )}
             </>

@@ -21,7 +21,7 @@ import CustomButton from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
-import { client } from 'services/api';
+import { client } from 'core/kanvas_client';
 
 // Context
 import { AuthContext } from 'components/context/auth-context';

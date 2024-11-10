@@ -3,7 +3,7 @@
 // Modules
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Platform } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -30,12 +30,14 @@ import { DEFAULT_THEME } from 'styles/theme';
 
 // Services
 import { client } from 'core/kanvas_client';
-import kanvasService from 'core/services/kanvas-service';
+import authService from 'core/services/auth-service';
+import userService from 'core/services/user-service';
 
 // Constants
 import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
-import { AuthContext } from 'components/context/auth-context';
 
+// Context
+import { AuthContext } from 'components/context/auth-context';
 
 // Interfaces
 interface ISignInProps {
@@ -113,8 +115,7 @@ export const SignIn = (props: ISignInProps) => {
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
-      const response = await kanvasService.getUserData();
-      console.log('Get User Data Response:', response);
+      const response = await userService.getUserData();
       signIn({ token, refresh_token, user: response });
       setIsLoading(false);
     } catch (error) {
@@ -127,8 +128,7 @@ export const SignIn = (props: ISignInProps) => {
   const handleSignIn = async (values: any) => {
     setIsLoading(true);
     try {
-      const response = await client.auth.login(values.email, values.password);
-      console.log('Login Response:', response);
+      const response = await authService.onSignIn(values);
       const { token, refresh_token } = response;
       await AsyncStorage.setItem(AUTH_TOKEN, token);
       getUserData(token, refresh_token);
@@ -153,10 +153,7 @@ export const SignIn = (props: ISignInProps) => {
     console.log('AuthToken:', authToken);
 
     try {
-      const response = await client.auth.socialLogin({
-        provider,
-        token: authToken,
-      });
+      const response = await authService.onSocialLogin(provider, authToken);
       const { token, refresh_token } = response.socialLogin;
       await AsyncStorage.setItem(AUTH_TOKEN, token);
       getUserData(token, refresh_token);

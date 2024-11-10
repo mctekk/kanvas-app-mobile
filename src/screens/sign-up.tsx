@@ -32,6 +32,7 @@ import { AuthContext } from 'components/context/auth-context';
 // Styles
 import { DEFAULT_THEME } from 'styles/theme';
 import kanvasService from 'core/services/kanvas-service';
+import userService from 'core/services/user-service';
 
 // Interfaces
 interface ISignUpProps {
@@ -102,7 +103,7 @@ export const SignUp = (props: ISignUpProps) => {
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
-      const response = await kanvasService.getUserData();
+      const response = await userService.getUserData();
       signUp({ token, refresh_token, user: response });
       setIsLoading(false);
     } catch (error) {

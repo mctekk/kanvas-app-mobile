@@ -26,6 +26,7 @@ import {
 // core
 import { client } from 'core/kanvas_client';
 import kanvasService from 'core/services/kanvas-service';
+import authService from 'core/services/auth-service';
 
 // Constants
 const Stack = createStackNavigator();
@@ -160,7 +161,7 @@ const MainStack = ({ navigation }) => {
 
   const onUserLogout = async () => {
     try {
-      const response = await client.auth.logout();
+      const response = await authService.onSignOut();
       await AsyncStorage.multiRemove(AsyncKeys);
       dispatch({ type: SIGN_OUT });
     } catch (error) {

@@ -11,6 +11,8 @@ project.ext.envConfigFiles = [
 ]
 
 react {
+    /* Autolinking */
+    autolinkLibrariesWithApp()
 }
 
 
@@ -60,6 +62,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:latest.release'
     implementation project(':react-native-vector-icons')
 
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
@@ -67,5 +70,4 @@ dependencies {
     }
 }
 
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")

@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* kanvas_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kanvas_appTests.m */; };
-		0AD63AB6DAE56A7CD4020F0A /* libPods-kanvas_app-kanvas_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB05E93E3E55DCE5B78A9530 /* libPods-kanvas_app-kanvas_appTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		563460933E2C672B47B10FA6 /* libPods-kanvas_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA751AC10392F20CC158F606 /* libPods-kanvas_app.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A9672BA2332C086FAC810FB1 /* libPods-kanvas_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA99E5920DCADD49923522A1 /* libPods-kanvas_app.a */; };
+		B562EF6C7A0BF0F69D64FFF2 /* libPods-kanvas_app-kanvas_appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0475C17DF85931B8AA6149 /* libPods-kanvas_app-kanvas_appTests.a */; };
+		F0C119F3D85EDF712CEC7E75 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 23408D82A08230B4131A4AEB /* PrivacyInfo.xcprivacy */; };
 		F6F6F8532BE13F7000021CB1 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = F6F6F8522BE13F7000021CB1 /* Fonts */; };
 		F6F6F8562BE1480F00021CB1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6F8552BE1480F00021CB1 /* File.swift */; };
 /* End PBXBuildFile section */
@@ -38,21 +39,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kanvas_app/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kanvas_app/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kanvas_app/main.m; sourceTree = "<group>"; };
-		21CB17F10E6FF2E91A4263CA /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; sourceTree = "<group>"; };
-		3676EAF554B6B5EC88491D4C /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; sourceTree = "<group>"; };
-		3AE397C625ED64D064F37F26 /* Pods-kanvas_app.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.release.xcconfig"; sourceTree = "<group>"; };
-		3D76FD7B41074E17BB5F451F /* Pods-kanvas_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.release.xcconfig"; sourceTree = "<group>"; };
-		5610969215014BB76696EE30 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; sourceTree = "<group>"; };
-		59FEDBF4984CCDD84DE9EC2F /* Pods-kanvas_app.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.debug.xcconfig"; sourceTree = "<group>"; };
-		7128AD74BCB3383B26B44B0E /* Pods-kanvas_app.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.debug.xcconfig"; sourceTree = "<group>"; };
-		74879E8AFDA3D78A52CA86BD /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; sourceTree = "<group>"; };
-		78CEDBEDFC5546CA63CE3225 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; sourceTree = "<group>"; };
+		23408D82A08230B4131A4AEB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = kanvas_app/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		264D44D0B27C7E42F00BF807 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; sourceTree = "<group>"; };
+		398B2E57B8D976C62DDF89DF /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; sourceTree = "<group>"; };
+		3E02BBE2C49450CF5522DBEF /* Pods-kanvas_app.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.debug.xcconfig"; sourceTree = "<group>"; };
+		53D1866DC186879DF446E22F /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.release.xcconfig"; sourceTree = "<group>"; };
+		6326E2B2EB702249F2E8D6EA /* Pods-kanvas_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.debug.xcconfig"; sourceTree = "<group>"; };
+		6A0475C17DF85931B8AA6149 /* libPods-kanvas_app-kanvas_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app-kanvas_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E243D67D915AD7E8A504651 /* Pods-kanvas_app.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kanvas_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		881BC3BA3F7797F7CC03F146 /* Pods-kanvas_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.debug.xcconfig"; sourceTree = "<group>"; };
-		9645DD5F3800BE1B9D5B77EC /* Pods-kanvas_app.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.release.xcconfig"; sourceTree = "<group>"; };
-		99ECD6DF2FE01C5B364BB3F8 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA751AC10392F20CC158F606 /* libPods-kanvas_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB05E93E3E55DCE5B78A9530 /* libPods-kanvas_app-kanvas_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app-kanvas_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A944F73935C89683376C41DC /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; sourceTree = "<group>"; };
+		AA99E5920DCADD49923522A1 /* libPods-kanvas_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFEC28F00876F130526A6146 /* Pods-kanvas_app.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.release.xcconfig"; sourceTree = "<group>"; };
+		BEBB5301EB77A4379E7D1F3F /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; sourceTree = "<group>"; };
+		C2D22F049509D7734CC4BA93 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5F9337EC7F62B6411775510 /* Pods-kanvas_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.release.xcconfig"; sourceTree = "<group>"; };
+		D2A8840F8384CD9FC5535ACA /* Pods-kanvas_app.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F6F6F8522BE13F7000021CB1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		F6F6F8542BE1480E00021CB1 /* kanvas_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kanvas_app-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AD63AB6DAE56A7CD4020F0A /* libPods-kanvas_app-kanvas_appTests.a in Frameworks */,
+				B562EF6C7A0BF0F69D64FFF2 /* libPods-kanvas_app-kanvas_appTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				563460933E2C672B47B10FA6 /* libPods-kanvas_app.a in Frameworks */,
+				A9672BA2332C086FAC810FB1 /* libPods-kanvas_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +109,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				23408D82A08230B4131A4AEB /* PrivacyInfo.xcprivacy */,
 			);
 			name = kanvas_app;
 			sourceTree = "<group>";
@@ -115,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				CA751AC10392F20CC158F606 /* libPods-kanvas_app.a */,
-				EB05E93E3E55DCE5B78A9530 /* libPods-kanvas_app-kanvas_appTests.a */,
+				AA99E5920DCADD49923522A1 /* libPods-kanvas_app.a */,
+				6A0475C17DF85931B8AA6149 /* libPods-kanvas_app-kanvas_appTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,18 +161,18 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				881BC3BA3F7797F7CC03F146 /* Pods-kanvas_app.debug.xcconfig */,
-				7128AD74BCB3383B26B44B0E /* Pods-kanvas_app.dev.debug.xcconfig */,
-				59FEDBF4984CCDD84DE9EC2F /* Pods-kanvas_app.prod.debug.xcconfig */,
-				3D76FD7B41074E17BB5F451F /* Pods-kanvas_app.release.xcconfig */,
-				3AE397C625ED64D064F37F26 /* Pods-kanvas_app.dev.release.xcconfig */,
-				9645DD5F3800BE1B9D5B77EC /* Pods-kanvas_app.prod.release.xcconfig */,
-				74879E8AFDA3D78A52CA86BD /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */,
-				3676EAF554B6B5EC88491D4C /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */,
-				78CEDBEDFC5546CA63CE3225 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */,
-				99ECD6DF2FE01C5B364BB3F8 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */,
-				5610969215014BB76696EE30 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */,
-				21CB17F10E6FF2E91A4263CA /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */,
+				6326E2B2EB702249F2E8D6EA /* Pods-kanvas_app.debug.xcconfig */,
+				3E02BBE2C49450CF5522DBEF /* Pods-kanvas_app.dev.debug.xcconfig */,
+				7E243D67D915AD7E8A504651 /* Pods-kanvas_app.prod.debug.xcconfig */,
+				C5F9337EC7F62B6411775510 /* Pods-kanvas_app.release.xcconfig */,
+				D2A8840F8384CD9FC5535ACA /* Pods-kanvas_app.dev.release.xcconfig */,
+				AFEC28F00876F130526A6146 /* Pods-kanvas_app.prod.release.xcconfig */,
+				C2D22F049509D7734CC4BA93 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */,
+				264D44D0B27C7E42F00BF807 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */,
+				BEBB5301EB77A4379E7D1F3F /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */,
+				53D1866DC186879DF446E22F /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */,
+				A944F73935C89683376C41DC /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */,
+				398B2E57B8D976C62DDF89DF /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -181,12 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "kanvas_appTests" */;
 			buildPhases = (
-				1592C902588876545E16C2F4 /* [CP] Check Pods Manifest.lock */,
+				30E0E589CC808BC1E82557F5 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				BFCA94C645DEFB8DC6836235 /* [CP] Embed Pods Frameworks */,
-				07EE01128A81F3CF6C43E14C /* [CP] Copy Pods Resources */,
+				C6E05FE6839C55B0885945AF /* [CP] Embed Pods Frameworks */,
+				C0014C40F82537AD9C208999 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,14 +205,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kanvas_app" */;
 			buildPhases = (
-				B9BE601704279457D86CD46C /* [CP] Check Pods Manifest.lock */,
+				5A3C3A99E8F15F7522B69C2D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				BF5DCD1FDD4AE9DDC46D185E /* [CP] Embed Pods Frameworks */,
-				3AA2226E805B4828D42FCEFA /* [CP] Copy Pods Resources */,
+				A78268F44D0220A7B7FB8369 /* [CP] Embed Pods Frameworks */,
+				A0A0CEF958E7EB3FBFE1A530 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +274,7 @@
 				F6F6F8532BE13F7000021CB1 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F0C119F3D85EDF712CEC7E75 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,24 +297,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		07EE01128A81F3CF6C43E14C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1592C902588876545E16C2F4 /* [CP] Check Pods Manifest.lock */ = {
+		30E0E589CC808BC1E82557F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,24 +319,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3AA2226E805B4828D42FCEFA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9BE601704279457D86CD46C /* [CP] Check Pods Manifest.lock */ = {
+		5A3C3A99E8F15F7522B69C2D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,7 +341,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF5DCD1FDD4AE9DDC46D185E /* [CP] Embed Pods Frameworks */ = {
+		A0A0CEF958E7EB3FBFE1A530 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A78268F44D0220A7B7FB8369 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,7 +375,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kanvas_app/Pods-kanvas_app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BFCA94C645DEFB8DC6836235 /* [CP] Embed Pods Frameworks */ = {
+		C0014C40F82537AD9C208999 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6E05FE6839C55B0885945AF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,7 +462,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74879E8AFDA3D78A52CA86BD /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */;
+			baseConfigurationReference = C2D22F049509D7734CC4BA93 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,7 +490,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99ECD6DF2FE01C5B364BB3F8 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */;
+			baseConfigurationReference = 53D1866DC186879DF446E22F /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,7 +515,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 881BC3BA3F7797F7CC03F146 /* Pods-kanvas_app.debug.xcconfig */;
+			baseConfigurationReference = 6326E2B2EB702249F2E8D6EA /* Pods-kanvas_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
@@ -548,7 +552,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D76FD7B41074E17BB5F451F /* Pods-kanvas_app.release.xcconfig */;
+			baseConfigurationReference = C5F9337EC7F62B6411775510 /* Pods-kanvas_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -658,6 +662,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				USE_HERMES = true;
 			};
 			name = Debug;
@@ -819,7 +824,7 @@
 		};
 		F69F42AE2C5AF23700580BE8 /* Prod.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59FEDBF4984CCDD84DE9EC2F /* Pods-kanvas_app.prod.debug.xcconfig */;
+			baseConfigurationReference = 7E243D67D915AD7E8A504651 /* Pods-kanvas_app.prod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -856,7 +861,7 @@
 		};
 		F69F42AF2C5AF23700580BE8 /* Prod.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78CEDBEDFC5546CA63CE3225 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */;
+			baseConfigurationReference = BEBB5301EB77A4379E7D1F3F /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -965,7 +970,7 @@
 		};
 		F69F42B12C5AF24300580BE8 /* Dev.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7128AD74BCB3383B26B44B0E /* Pods-kanvas_app.dev.debug.xcconfig */;
+			baseConfigurationReference = 3E02BBE2C49450CF5522DBEF /* Pods-kanvas_app.dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
@@ -1002,7 +1007,7 @@
 		};
 		F69F42B22C5AF24300580BE8 /* Dev.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3676EAF554B6B5EC88491D4C /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */;
+			baseConfigurationReference = 264D44D0B27C7E42F00BF807 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1104,7 +1109,7 @@
 		};
 		F69F42B42C5AF24D00580BE8 /* Prod.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9645DD5F3800BE1B9D5B77EC /* Pods-kanvas_app.prod.release.xcconfig */;
+			baseConfigurationReference = AFEC28F00876F130526A6146 /* Pods-kanvas_app.prod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1139,7 +1144,7 @@
 		};
 		F69F42B52C5AF24D00580BE8 /* Prod.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21CB17F10E6FF2E91A4263CA /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */;
+			baseConfigurationReference = 398B2E57B8D976C62DDF89DF /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1238,7 +1243,7 @@
 		};
 		F69F42B72C5AF25600580BE8 /* Dev.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AE397C625ED64D064F37F26 /* Pods-kanvas_app.dev.release.xcconfig */;
+			baseConfigurationReference = D2A8840F8384CD9FC5535ACA /* Pods-kanvas_app.dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
@@ -1273,7 +1278,7 @@
 		};
 		F69F42B82C5AF25600580BE8 /* Dev.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5610969215014BB76696EE30 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */;
+			baseConfigurationReference = A944F73935C89683376C41DC /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

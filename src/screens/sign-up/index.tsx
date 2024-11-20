@@ -2,68 +2,39 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 // Modules
 import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Alert } from 'react-native';
+import { Alert, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Molecules
-import Header from 'components/molecules/header';
-import TextInput from 'components/molecules/text-input';
-
-// Styles
-import { Colors } from 'styles';
-
 // Atoms
-import CustomButton from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Api
 import { client } from 'core/kanvas_client';
 
 // Utils
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
+import { AUTH_TOKEN } from 'utils/constants';
 
 // Context
 import { AuthContext } from 'components/context/auth-context';
 
-// Styles
-import { DEFAULT_THEME } from 'styles/theme';
-import kanvasService from 'core/services/kanvas-service';
+// Core
 import userService from 'core/services/user-service';
+
+// Styles
+import {
+  Container,
+  ScreenHeader,
+  Content,
+  Input,
+} from './styles';
 
 // Interfaces
 interface ISignUpProps {
   navigation: any;
 }
-
-const HEADER_HEIGHT = 130;
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${DEFAULT_THEME.background};
-`;
-
-const ScreenHeader = styled(Header)`
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Content = styled.View`
-  padding: 20px;
-  flex: 1;
-`;
-
-const Input = styled(TextInput)`
-  margin-top: 20px;
-`;
-
-const Button = styled(CustomButton)`
-  height: 50px;
-  border-radius: 5px;
-`;
 
 const initialValues = {
   email: '',

@@ -3,7 +3,6 @@
 // Modules
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Platform } from 'react-native';
-import styled from 'styled-components/native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,8 +16,6 @@ import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
 import SignWithGoogle from 'components/molecules/sign-with-google-button';
 
 // Atoms
-import CustomButton from 'components/atoms/button';
-import Text from 'components/atoms/text';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Organisms
@@ -37,12 +34,11 @@ import {
  } from './styles';
 
 // Services
-import { client } from 'core/kanvas_client';
 import authService from 'core/services/auth-service';
 import userService from 'core/services/user-service';
 
 // Constants
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
+import { AUTH_TOKEN } from 'utils/constants';
 
 // Context
 import { AuthContext } from 'components/context/auth-context';

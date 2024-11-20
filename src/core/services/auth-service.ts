@@ -21,8 +21,7 @@ export class AuthServices {
   async onSignIn(loginData: ILoginData) {
     try {
       const response = await client.auth.login(loginData.email, loginData.password);
-      const formatResponse = handleCustomFields(response);
-      return formatResponse;
+      return response;
     } catch (error) {
       console.log('onSignIn error:', error);
       throw new Error(`onSignIn error: ${error}`);

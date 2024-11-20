@@ -14,7 +14,7 @@ import { TextTransform, translate } from 'components/atoms/localized-label';
 import { client } from 'core/kanvas_client';
 
 // Styles
-import { 
+import {
   Container,
   ScreenHeader,
   Content,
@@ -23,6 +23,7 @@ import {
   Input,
   SendButton,
  } from './styles';
+import { Typography } from 'styles';
 
 // Interfaces
 interface IForgotPasswordProps {

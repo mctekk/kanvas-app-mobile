@@ -1,8 +1,8 @@
 // Core
-import { adminClient, client } from "core/kanvas_client";
+import { adminClient, client } from 'core/kanvas_client';
 
 // Interfaces
-import { IAppleInAppPurchaseProps } from "core/interface/payment.interface";
+import { IAppleInAppPurchaseProps } from 'core/interface/payment.interface';
 
 
 export class PaymentService {
@@ -22,11 +22,11 @@ export class PaymentService {
         transaction_id: paymentResponse.transactionId,
         transaction_date: paymentResponse.transactionDate,
         receipt: paymentResponse.transactionReceipt,
-      }
+      };
 
       const response = await adminClient.order.createOrderFromAppleInAppPurchaseReceipt({
         input: payment_data,
-      })
+      });
       console.log('onIAPPaymentSummited', response);
       return response;
     } catch (error) {

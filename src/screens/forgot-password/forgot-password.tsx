@@ -1,76 +1,34 @@
 // Modules
-import React, {useContext, useEffect, useState} from 'react';
-import styled from 'styled-components';
-import {Formik} from 'formik';
+import React, { useContext, useEffect, useState } from 'react';
+import { Formik } from 'formik';
 import * as yup from 'yup';
-import {Alert, StyleSheet} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { Alert, StyleSheet } from 'react-native';
 
 // Molecules
-import Header from 'components/molecules/header';
-import TextInput from 'components/molecules/text-input';
 import LoadingModal from 'components/molecules/modals/loading-modal';
 
-// Styles
-import {Colors, Typography} from 'styles';
-
 // Atoms
-import Text from 'components/atoms/text';
-import Button from 'components/atoms/button';
-import {TextTransform, translate} from 'components/atoms/localized-label';
+import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Services
 import { client } from 'core/kanvas_client';
 
 // Styles
-import { DEFAULT_THEME } from 'styles/theme';
+import {
+  Container,
+  ScreenHeader,
+  Content,
+  Title,
+  Subtitle,
+  Input,
+  SendButton,
+ } from './styles';
+import { Typography } from 'styles';
 
 // Interfaces
 interface IForgotPasswordProps {
   navigation: any;
 }
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${DEFAULT_THEME.background};
-`;
-
-const ScreenHeader = styled(Header)`
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${DEFAULT_THEME.primary};
-`;
-
-const Content = styled(KeyboardAwareScrollView)`
-  margin-top: -30px;
-`;
-
-const Title = styled(Text)`
-  font-size: ${Typography.FONT_SIZE_22}px;
-  line-height: ${Typography.FONT_SIZE_24}px;
-  font-weight: bold;
-  color: ${DEFAULT_THEME.text};
-  text-align: center;
-  margin-bottom: 5px;
-`;
-
-const Subtitle = styled(Text)`
-  font-size: ${Typography.FONT_SIZE_14}px;
-  line-height: ${Typography.FONT_SIZE_24}px;
-  color: ${DEFAULT_THEME.text};
-  text-align: center;
-  margin-bottom: 15px;
-`;
-
-const Input = styled(TextInput)`
-  width: 75%;
-`;
-
-const SendButton = styled(Button)`
-  width: 50%;
-  height: 40px;
-  border-radius: 5px;
-`;
 
 const initialValues = {
   email: '',
@@ -82,7 +40,7 @@ const validationSchema = yup.object().shape({
 
 export const ForgotPassword = (props: IForgotPasswordProps) => {
   // Props
-  const {navigation} = props;
+  const { navigation } = props;
 
   // State
   const [isLoading, setIsLoading] = useState(false);
@@ -147,7 +105,7 @@ export const ForgotPassword = (props: IForgotPasswordProps) => {
               <SendButton
                 title={translate('sendMail', TextTransform.NONE)}
                 onPress={props.handleSubmit}
-                style={{marginTop: 20}}
+                style={{ marginTop: 20 }}
                 loading={isLoading}
                 disabled={isLoading}
               />

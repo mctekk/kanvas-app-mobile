@@ -3,66 +3,36 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 // Modules
-import React, {useCallback, useContext, useEffect} from 'react';
-import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-import styled from 'styled-components';
+import React, { useCallback, useContext, useEffect } from 'react';
+import { FlatList } from 'react-native-gesture-handler';
 
 // Icons
 import MenuIcon from 'assets/icons/menu-icon';
 
 // Atoms
-import Button from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Context
-import {AuthContext} from 'components/context/auth-context';
-import {UserContext} from 'components/context/user-context';
+import { AuthContext } from 'components/context/auth-context';
+import { UserContext } from 'components/context/user-context';
 
 // Molecules
-import Header from 'components/molecules/header';
-import {SettingsItems} from 'components/molecules/settings-items';
+import { SettingsItems } from 'components/molecules/settings-items';
 
 // Styles
-import {Colors, Typography} from 'styles';
-import { DEFAULT_THEME } from 'styles/theme';
+import { Colors, Typography } from 'styles';
+import { 
+  Container,
+  Content,
+  ScreenHeader,
+  IconContainer,
+  LogoutButton,
+ } from './styles';
 
 // Interfaces
 interface ISettingsProps {
   navigation: any;
 }
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${DEFAULT_THEME.background};
-`;
-
-const ScreenHeader = styled(Header)`
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${DEFAULT_THEME.primary};
-`;
-
-const Content = styled.SafeAreaView`
-  flex: 1px;
-  margin: 10px;
-`;
-
-const IconContainer = styled.TouchableOpacity`
-  align-items: center;
-  padding-right: 16px;
-  margin-top: 10px;
-`;
-
-const LogoutButton = styled(Button)`
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-  height: 50px;
-  width: 50%;
-  align-self: center;
-  border-radius: 10px;
-  background-color: ${DEFAULT_THEME.error};
-`;
 
 const data = [
   {
@@ -79,11 +49,11 @@ const data = [
 
 export const Settings = (props: ISettingsProps) => {
   // Props
-  const {navigation} = props;
+  const { navigation } = props;
 
   // Context
-  const {signOut} = useContext(AuthContext);
-  const {userData} = useContext(UserContext);
+  const { signOut } = useContext(AuthContext);
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
     console.log('User Data:', userData);
@@ -103,7 +73,7 @@ export const Settings = (props: ISettingsProps) => {
     </IconContainer>
   );
 
-  const renderItem = useCallback(({item}) => {
+  const renderItem = useCallback(({ item }) => {
     return (
       <SettingsItems
         key={item.key}

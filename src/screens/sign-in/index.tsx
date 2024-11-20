@@ -3,7 +3,6 @@
 // Modules
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, Platform } from 'react-native';
-import styled from 'styled-components';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,8 +16,6 @@ import SignWithFacebook from 'components/molecules/sign-with-facebook-button';
 import SignWithGoogle from 'components/molecules/sign-with-google-button';
 
 // Atoms
-import CustomButton from 'components/atoms/button';
-import Text from 'components/atoms/text';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Organisms
@@ -26,64 +23,30 @@ import { AuthContainer } from 'components/organisms/auth-container';
 
 // Styles
 import { Colors, Typography } from 'styles';
-import { DEFAULT_THEME } from 'styles/theme';
+import { 
+  Title,
+  Content,
+  Button,
+  ForgotPasswordButton,
+  SignUpButton,
+  SignUpText,
+  SocialContainer,
+ } from './styles';
 
 // Services
-import { client } from 'core/kanvas_client';
-import kanvasService from 'core/services/kanvas-service';
+import authService from 'core/services/auth-service';
+import userService from 'core/services/user-service';
 
 // Constants
-import { AUTH_TOKEN, REFRESH_TOKEN, USER_DATA } from 'utils/constants';
-import { AuthContext } from 'components/context/auth-context';
+import { AUTH_TOKEN } from 'utils/constants';
 
+// Context
+import { AuthContext } from 'components/context/auth-context';
 
 // Interfaces
 interface ISignInProps {
   navigation: any;
 }
-
-const Title = styled(Text)`
-  font-size: ${Typography.FONT_SIZE_24}px;
-  line-height: ${Typography.FONT_SIZE_32}px;
-  font-weight: bold;
-  color: ${DEFAULT_THEME.text};
-`;
-
-const Content = styled.View`
-  margin-top: 40px;
-`;
-
-const Button = styled(CustomButton)`
-  width: 100%;
-  height: 40px;
-`;
-
-const ForgotPasswordButton = styled(CustomButton)`
-  top: 20px;
-  background-color: 'rgba(52, 52, 52, 0)';
-`;
-
-const SignUpButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 40px;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-`;
-
-const SignUpText = styled(Text)`
-  font-size: ${Typography.FONT_SIZE_16}px;
-  line-height: ${Typography.FONT_SIZE_22}px;
-  color: ${DEFAULT_THEME.text};
-`;
-
-const SocialContainer = styled.View`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
 
 const initialValues = {
   email: '',
@@ -113,8 +76,7 @@ export const SignIn = (props: ISignInProps) => {
 
   const getUserData = async (token: string, refresh_token: string) => {
     try {
-      const response = await kanvasService.getUserData();
-      console.log('Get User Data Response:', response);
+      const response = await userService.getUserData();
       signIn({ token, refresh_token, user: response });
       setIsLoading(false);
     } catch (error) {
@@ -127,8 +89,7 @@ export const SignIn = (props: ISignInProps) => {
   const handleSignIn = async (values: any) => {
     setIsLoading(true);
     try {
-      const response = await client.auth.login(values.email, values.password);
-      console.log('Login Response:', response);
+      const response = await authService.onSignIn(values);
       const { token, refresh_token } = response;
       await AsyncStorage.setItem(AUTH_TOKEN, token);
       getUserData(token, refresh_token);
@@ -148,15 +109,8 @@ export const SignIn = (props: ISignInProps) => {
 
   const onSocialLogin = async (provider: string, authToken: any) => {
     setIsLoading(true);
-
-    console.log('Provider:', provider);
-    console.log('AuthToken:', authToken);
-
     try {
-      const response = await client.auth.socialLogin({
-        provider,
-        token: authToken,
-      });
+      const response = await authService.onSocialLogin(provider, authToken);
       const { token, refresh_token } = response.socialLogin;
       await AsyncStorage.setItem(AUTH_TOKEN, token);
       getUserData(token, refresh_token);

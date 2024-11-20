@@ -3,44 +3,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // Modules
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { ActivityIndicator, FlatList } from 'react-native';
-
-// Icons
-import MenuIcon from 'assets/icons/menu-icon';
-
-// Molecules
-import Header from 'components/molecules/header';
-
-// Styles
-import { Colors, Typography } from 'styles';
 
 // Context
 import { UserContext } from 'components/context/user-context';
 
 // Atoms
-import Button from 'components/atoms/button';
 import { TextTransform, translate } from 'components/atoms/localized-label';
 
 // Styles
-import { DEFAULT_THEME } from 'styles/theme';
 import { client } from 'core/kanvas_client';
+import {
+  Container,
+  ScreenHeader,
+  Content,
+} from './styles';
+import { DEFAULT_THEME } from 'styles/theme';
+
+// Molecules
 import { NotificationsItem } from 'components/molecules/notifications-item';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: ${DEFAULT_THEME.background};
-`;
-
-const ScreenHeader = styled(Header)`
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${DEFAULT_THEME.primary};
-`;
-
-const Content = styled.SafeAreaView`
-  margin: 10px;
-`;
 
 // Interfaces
 interface IHomeProps {
@@ -93,14 +75,14 @@ export const Notifications = (props: IHomeProps) => {
     <Container>
       <ScreenHeader
         title={translate('notification', TextTransform.CAPITALIZE)}
-        closeButtonType='close'
+        closeButtonType="close"
       />
 
       <Content>
 
         {loading ? (
           <ActivityIndicator
-            size='large'
+            size="large"
             color={DEFAULT_THEME.primary}
           />
         ) : (

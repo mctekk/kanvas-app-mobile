@@ -17,3 +17,13 @@ export const SIGN_UP = 'SIGN_UP';
 export const SIGN_OUT = 'SIGN_OUT';
 export const USER_DATA_UPDATE = 'USER_DATA_UPDATE';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
+
+// Prices list for in-app purchases in staging
+export const pricesIds = {
+  dev: [
+    'test_price_01',
+  ],
+  prod: [
+    'test_price_prod_01',
+  ],
+};

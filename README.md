@@ -15,3 +15,5 @@ The app currently contains the following Kanvas modules:
   - Update User Data
   - Get User by ID
   - Retrieve User Information
+- Payments
+  -IAP Payments webhook support

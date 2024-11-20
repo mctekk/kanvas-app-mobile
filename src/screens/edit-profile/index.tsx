@@ -15,6 +15,13 @@ import LoadingModal from 'components/molecules/modals/loading-modal';
 
 // Styles
 import { Colors } from 'styles';
+import {
+  Container,
+  ScreenHeader,
+  Content,
+  Input,
+  Button,
+} from './styles';
 
 // Atoms
 import CustomButton from 'components/atoms/button';
@@ -35,30 +42,6 @@ interface IEditProfileProps {
   navigation: any;
 }
 
-const Container = styled.View`
-  flex: 1;
-  background-color: ${DEFAULT_THEME.background};
-`;
-
-const ScreenHeader = styled(Header)`
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${DEFAULT_THEME.primary};
-`;
-
-const Content = styled.View`
-  padding: 20px;
-  flex: 1;
-`;
-
-const Input = styled(TextInput)`
-  margin-top: 20px;
-`;
-
-const Button = styled(CustomButton)`
-  height: 50px;
-  border-radius: 5px;
-`;
 
 const validationSchema = yup.object().shape({
   email: yup.string().required(translate('fieldRequired', TextTransform.NONE)),

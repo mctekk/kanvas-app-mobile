@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.4.0",
-    "@kanvas/core": "^0.18.2",
+    "@kanvas/core": "^0.21.0",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-native-google-signin/google-signin": "^13.1.0",
@@ -37,6 +37,9 @@
     "react-native-formik": "^1.7.8",
     "react-native-gesture-handler": "^2.20.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-iap": "^12.15.7",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-deep-linking": "^2.2.0",
     "react-native-modal": "^13.0.1",
     "react-native-paper": "^5.12.5",
     "react-native-reanimated": "^3.15.0",

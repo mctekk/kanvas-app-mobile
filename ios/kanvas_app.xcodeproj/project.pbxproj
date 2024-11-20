@@ -38,13 +38,21 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kanvas_app/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kanvas_app/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kanvas_app/main.m; sourceTree = "<group>"; };
+		164C87B4B0D2F8F96CD5EE64 /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig"; sourceTree = "<group>"; };
+		291B805E1973D29C8ED27FC8 /* Pods-kanvas_app.prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.release.xcconfig"; sourceTree = "<group>"; };
 		33834A4FF8A5DDDA469D5D28 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51EF70C7534D67A3E6E938A7 /* Pods-kanvas_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.debug.xcconfig"; sourceTree = "<group>"; };
 		6F0BA3B0A73109E378AFBEC6 /* libPods-kanvas_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5CB5AC400D957B5C9BC635 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig"; sourceTree = "<group>"; };
+		806D5EA840743024519FF7F1 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kanvas_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A37A3D9CFE00A07621EEB90 /* Pods-kanvas_app.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.release.xcconfig"; sourceTree = "<group>"; };
 		9C0E6FF163A5E243C2F8B1F4 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D0CC2243CBB22B9D0B0C6B3 /* Pods-kanvas_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.release.xcconfig"; sourceTree = "<group>"; };
+		ACFF47A1B30BBD813B3E9E32 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; path = "Target Support Files/Pods-kanvas_app-kanvas_appTests/Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig"; sourceTree = "<group>"; };
 		D4328A6AC4FB81339FBE4DCD /* libPods-kanvas_app-kanvas_appTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kanvas_app-kanvas_appTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F612707722E817EFE9EBF2 /* Pods-kanvas_app.prod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.prod.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.prod.debug.xcconfig"; sourceTree = "<group>"; };
+		E38DB4BB030D8CF920EF6CE6 /* Pods-kanvas_app.dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanvas_app.dev.debug.xcconfig"; path = "Target Support Files/Pods-kanvas_app/Pods-kanvas_app.dev.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F6F6F8522BE13F7000021CB1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		F6F6F8542BE1480E00021CB1 /* kanvas_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kanvas_app-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -154,6 +162,14 @@
 				9D0CC2243CBB22B9D0B0C6B3 /* Pods-kanvas_app.release.xcconfig */,
 				33834A4FF8A5DDDA469D5D28 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */,
 				9C0E6FF163A5E243C2F8B1F4 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */,
+				E38DB4BB030D8CF920EF6CE6 /* Pods-kanvas_app.dev.debug.xcconfig */,
+				D7F612707722E817EFE9EBF2 /* Pods-kanvas_app.prod.debug.xcconfig */,
+				9A37A3D9CFE00A07621EEB90 /* Pods-kanvas_app.dev.release.xcconfig */,
+				291B805E1973D29C8ED27FC8 /* Pods-kanvas_app.prod.release.xcconfig */,
+				7B5CB5AC400D957B5C9BC635 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */,
+				806D5EA840743024519FF7F1 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */,
+				ACFF47A1B30BBD813B3E9E32 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */,
+				164C87B4B0D2F8F96CD5EE64 /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -569,8 +585,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -596,6 +613,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -615,6 +633,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -632,8 +652,13 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -641,8 +666,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -668,6 +694,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -680,6 +707,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -696,8 +725,13 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -706,8 +740,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -733,6 +768,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -752,6 +788,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -769,14 +807,19 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Prod.Debug;
 		};
 		F69F42AE2C5AF23700580BE8 /* Prod.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51EF70C7534D67A3E6E938A7 /* Pods-kanvas_app.debug.xcconfig */;
+			baseConfigurationReference = D7F612707722E817EFE9EBF2 /* Pods-kanvas_app.prod.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -813,7 +856,7 @@
 		};
 		F69F42AF2C5AF23700580BE8 /* Prod.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33834A4FF8A5DDDA469D5D28 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */;
+			baseConfigurationReference = 806D5EA840743024519FF7F1 /* Pods-kanvas_app-kanvas_appTests.prod.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -843,8 +886,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -870,6 +914,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -889,6 +934,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -906,14 +953,19 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Dev.Debug;
 		};
 		F69F42B12C5AF24300580BE8 /* Dev.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51EF70C7534D67A3E6E938A7 /* Pods-kanvas_app.debug.xcconfig */;
+			baseConfigurationReference = E38DB4BB030D8CF920EF6CE6 /* Pods-kanvas_app.dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
@@ -950,7 +1002,7 @@
 		};
 		F69F42B22C5AF24300580BE8 /* Dev.Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33834A4FF8A5DDDA469D5D28 /* Pods-kanvas_app-kanvas_appTests.debug.xcconfig */;
+			baseConfigurationReference = 7B5CB5AC400D957B5C9BC635 /* Pods-kanvas_app-kanvas_appTests.dev.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -980,8 +1032,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1007,6 +1060,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -1019,6 +1073,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -1035,15 +1091,20 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Prod.Release;
 		};
 		F69F42B42C5AF24D00580BE8 /* Prod.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0CC2243CBB22B9D0B0C6B3 /* Pods-kanvas_app.release.xcconfig */;
+			baseConfigurationReference = 291B805E1973D29C8ED27FC8 /* Pods-kanvas_app.prod.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1078,7 +1139,7 @@
 		};
 		F69F42B52C5AF24D00580BE8 /* Prod.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C0E6FF163A5E243C2F8B1F4 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */;
+			baseConfigurationReference = 164C87B4B0D2F8F96CD5EE64 /* Pods-kanvas_app-kanvas_appTests.prod.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1105,8 +1166,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1132,6 +1194,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -1144,6 +1207,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -1160,15 +1225,20 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Dev.Release;
 		};
 		F69F42B72C5AF25600580BE8 /* Dev.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0CC2243CBB22B9D0B0C6B3 /* Pods-kanvas_app.release.xcconfig */;
+			baseConfigurationReference = 9A37A3D9CFE00A07621EEB90 /* Pods-kanvas_app.dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				CLANG_ENABLE_MODULES = YES;
@@ -1203,7 +1273,7 @@
 		};
 		F69F42B82C5AF25600580BE8 /* Dev.Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C0E6FF163A5E243C2F8B1F4 /* Pods-kanvas_app-kanvas_appTests.release.xcconfig */;
+			baseConfigurationReference = ACFF47A1B30BBD813B3E9E32 /* Pods-kanvas_app-kanvas_appTests.dev.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

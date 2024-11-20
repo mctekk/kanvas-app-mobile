@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 // Screens
 import {SignIn} from 'screens/sign-in';
 import {SignUp} from 'screens/sign-up';
-import { ForgotPassword } from 'screens/forgot-password';
+import { ForgotPassword } from 'screens/forgot-password/forgot-password';
 
 const Stack = createStackNavigator();
 
